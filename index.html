@@ -1,257 +1,213 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zerone AI Portofolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zerone Official | Portofolio</title>
   <link rel="icon" href="https://files.catbox.moe/8es5ms.jpeg">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
     body {
-      background: #0d0d0d;
+      margin: 0;
+      background: black;
       color: white;
+      font-family: 'Segoe UI', sans-serif;
       overflow-x: hidden;
     }
-    header {
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+    h1 {
       text-align: center;
-      padding: 2rem 1rem;
+      margin-top: 2rem;
+      font-size: 2.5rem;
     }
-    header img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 3px solid #9f5bff;
+    .typewriter {
+      font-size: 1.5rem;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+      width: 24ch;
+      animation: typing 4s steps(24), blink .75s step-end infinite alternate;
+      margin: auto;
     }
-    header h1 {
-      margin-top: 1rem;
-      font-size: 1.8rem;
-      color: #9f5bff;
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 24ch }
     }
-    nav {
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+    .btns {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 2rem;
+      gap: 1rem;
+      margin-top: 2rem;
     }
-    .nav-btn {
+    .btn {
       background: transparent;
+      border: 2px solid white;
       color: white;
-      border: 2px solid #9f5bff;
-      padding: 0.5rem 1.5rem;
-      border-radius: 20px;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
       cursor: pointer;
+      font-size: 1rem;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .nav-btn:hover {
-      background: linear-gradient(45deg, #9f5bff, #ff9aff);
-      color: #000;
-      box-shadow: 0 0 10px #9f5bff;
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, red, orange, yellow, green, cyan, blue, violet, red);
+      animation: rainbow 3s linear infinite;
+      z-index: 0;
     }
-    .section {
-      display: none;
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes rainbow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .chat-box {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid white;
       padding: 1rem;
-      animation: fadeIn 0.4s ease;
-    }
-    .section.active {
-      display: block;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .social-links a,
-    .store-links a {
-      display: block;
-      background: #1a1a1a;
-      color: white;
-      padding: 1rem;
-      margin: 0.5rem 0;
-      border-left: 5px solid #9f5bff;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    .social-links a:hover,
-    .store-links a:hover {
-      background: #2a2a2a;
-      transform: scale(1.02);
-    }
-    .chatbox {
-      max-width: 500px;
-      margin: auto;
-      background: #121212;
       border-radius: 10px;
+    }
+    textarea {
+      width: 100%;
       padding: 1rem;
-    }
-    .chat-log {
-      max-height: 300px;
-      overflow-y: auto;
-      padding: 0.5rem;
-    }
-    .chat-message {
-      padding: 0.5rem 1rem;
-      border-radius: 15px;
-      margin: 5px 0;
-      max-width: 80%;
-      word-wrap: break-word;
-    }
-    .user-msg {
-      background: #9f5bff;
-      align-self: flex-end;
-      margin-left: auto;
-    }
-    .bot-msg {
-      background: #2a2a2a;
-      align-self: flex-start;
-      margin-right: auto;
-    }
-    .input-area {
-      display: flex;
-      gap: 10px;
-      margin-top: 1rem;
-    }
-    .input-area input {
-      flex: 1;
-      padding: 0.5rem;
-      border-radius: 20px;
+      font-size: 1rem;
+      border-radius: 10px;
       border: none;
-    }
-    .input-area button {
-      background: #9f5bff;
+      resize: none;
+      outline: none;
+      margin-bottom: 1rem;
+      background: #222;
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
+    }
+    button.send {
+      width: 100%;
+      padding: 1rem;
       border: none;
+      border-radius: 10px;
+      background: #00ff88;
+      color: black;
+      font-weight: bold;
+      font-size: 1rem;
       cursor: pointer;
     }
-    .action-btns {
-      display: flex;
-      justify-content: space-between;
-      margin: 1rem 0;
+    .response {
+      margin-top: 1rem;
+      white-space: pre-wrap;
     }
-    audio {
-      display: none;
+    .socials {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .socials a {
+      margin: 0 0.5rem;
+      color: cyan;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://files.catbox.moe/ubhpu3.mp3" type="audio/mp3">
+  <canvas id="stars"></canvas>
+
+  <h1>Zerone Official</h1>
+  <div class="typewriter">Developer Bot | Sedia Panel | Jual Script</div>
+
+  <div class="btns">
+    <button class="btn"><span>Produk</span></button>
+    <button class="btn"><span>Script Gratis</span></button>
+    <button class="btn"><span>Kontak Admin</span></button>
+  </div>
+
+  <div class="chat-box">
+    <textarea id="prompt" rows="4" placeholder="Tanya sesuatu ke Zerone AI..."></textarea>
+    <button class="send" onclick="askAI()">Kirim ke AI</button>
+    <div class="response" id="response"></div>
+  </div>
+
+  <div class="socials">
+    <p>Hubungi Kami:</p>
+    <a href="https://wa.me/6283840390064" target="_blank">WhatsApp</a> |
+    <a href="https://t.me/ZeroneOfficial" target="_blank">Telegram</a> |
+    <a href="https://www.youtube.com/@ZeroOffc" target="_blank">YouTube</a>
+  </div>
+
+  <audio autoplay loop hidden>
+    <source src="https://files.catbox.moe/ubhpu3.mp3" type="audio/mpeg">
   </audio>
 
-  <header>
-    <img src="https://files.catbox.moe/8es5ms.jpeg" alt="Zerone Logo">
-    <h1>Zerone Official</h1>
-  </header>
-
-  <nav>
-    <button class="nav-btn" onclick="showSection('social')">🔗 Sosial</button>
-    <button class="nav-btn" onclick="showSection('ai')">🤖 Zerone AI</button>
-    <button class="nav-btn" onclick="showSection('store')">📦 Store</button>
-    <button class="nav-btn" onclick="showSection('contact')">📞 Kontak</button>
-  </nav>
-
-  <section id="social" class="section active">
-    <div class="social-links">
-      <a href="https://wa.me/6283840390064">📱 WhatsApp</a>
-      <a href="https://t.me/ZeroneOfficial">📟 Telegram</a>
-      <a href="https://www.youtube.com/@ZeroOffc">▶️ YouTube</a>
-      <a href="https://zeronemarket.vercel.app">🛒 Store Script</a>
-      <a href="https://whatsapp.com/channel/0029Vb2yK5VLCoX4w8rbQZ2I">📢 Channel WA</a>
-      <a href="https://chat.whatsapp.com/Eo62y4vuqrVHYwLlGf5IPY">👥 Grup WA</a>
-    </div>
-  </section>
-
-  <section id="ai" class="section">
-    <div class="chatbox">
-      <div class="action-btns">
-        <button onclick="clearChat()">🗑️ Hapus Semua</button>
-      </div>
-      <div id="chat-log" class="chat-log"></div>
-      <div class="input-area">
-        <input type="text" id="user-input" placeholder="Tanya sesuatu...">
-        <button onclick="sendMessage()">Kirim</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="store" class="section">
-    <div class="store-links">
-      <a href="https://ladangscript.vercel.app">🧩 Ladang Script</a>
-      <a href="https://zeronemarket.vercel.app">🧪 Zerone Market</a>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <p style="text-align: center">Hubungi admin langsung di <a href="https://wa.me/6283840390064">WhatsApp</a></p>
-  </section>
-
   <script>
-    const chatLog = document.getElementById('chat-log');
+    const c = document.getElementById("stars");
+    const ctx = c.getContext("2d");
+    let stars = [];
+    c.width = window.innerWidth;
+    c.height = window.innerHeight;
 
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
+    for (let i = 0; i < 150; i++) {
+      stars.push({
+        x: Math.random() * c.width,
+        y: Math.random() * c.height,
+        radius: Math.random() * 1.5,
+        alpha: Math.random()
+      });
     }
 
-    function sendMessage() {
-      const input = document.getElementById('user-input');
-      const msg = input.value.trim();
-      if (!msg) return;
-
-      appendMessage('user', msg);
-      input.value = '';
-      setTimeout(() => {
-        appendMessage('bot', `Zerone AI menjawab: "${generateReply(msg)}"`);
-        saveChat();
-      }, 800);
+    function drawStars() {
+      ctx.clearRect(0, 0, c.width, c.height);
+      ctx.fillStyle = "white";
+      stars.forEach(star => {
+        ctx.globalAlpha = star.alpha;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(drawStars);
     }
+    drawStars();
 
-    function appendMessage(sender, msg) {
-      const div = document.createElement('div');
-      div.classList.add('chat-message');
-      div.classList.add(sender === 'user' ? 'user-msg' : 'bot-msg');
-      div.innerText = msg;
-      chatLog.appendChild(div);
-      chatLog.scrollTop = chatLog.scrollHeight;
+    async function askAI() {
+      const prompt = document.getElementById('prompt').value;
+      const res = document.getElementById('response');
+      res.innerText = "Menunggu respon...";
+
+      try {
+        const chat = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer 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"
+          },
+          body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "user", content: prompt }]
+          })
+        });
+
+        const data = await chat.json();
+        res.innerText = data.choices[0].message.content;
+      } catch (err) {
+        res.innerText = "Gagal menghubungi AI.";
+      }
     }
-
-    function clearChat() {
-      chatLog.innerHTML = '';
-      localStorage.removeItem('chatHistory');
-    }
-
-    function saveChat() {
-      const messages = [...chatLog.children].map(c => ({
-        type: c.classList.contains('user-msg') ? 'user' : 'bot',
-        msg: c.innerText
-      }));
-      localStorage.setItem('chatHistory', JSON.stringify(messages));
-    }
-
-    function loadChat() {
-      const saved = JSON.parse(localStorage.getItem('chatHistory') || '[]');
-      saved.forEach(c => appendMessage(c.type, c.msg));
-    }
-
-    function generateReply(input) {
-      const dummy = [
-        "Wah, pertanyaan menarik kak!",
-        "Untuk sekarang, fitur ini masih dalam pengembangan ya kak.",
-        "Terima kasih sudah bertanya, Zerone siap bantu kapan aja."
-      ];
-      return dummy[Math.floor(Math.random() * dummy.length)];
-    }
-
-    window.onload = loadChat;
   </script>
 </body>
-      </html>
-      
+</html>
