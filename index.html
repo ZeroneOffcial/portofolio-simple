@@ -1,71 +1,154 @@
-
-<!DOCTYPE html><html lang="id"><head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zerone | Portofolio</title>
-  <link rel="icon" href="https://files.catbox.moe/8es5ms.jpeg">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Panel User & Server</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body {
-      background: linear-gradient(135deg, #000000, #014d40, #000000);
-      background-size: 300% 300%;
-      animation: gradient 10s ease infinite;
-      overflow: hidden;
+      background: #121212;
       color: white;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      position: relative;
-      border: 3px solid rgba(0, 255, 150, 0.3);
+      justify-content: center;
+      height: 100vh;
+    }
+    form {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #00000080;
+      width: 300px;
+    }
+    input, button {
+      width: 100%;
       padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
     }
-    @keyframes gradient { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
-    .stars { position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
-    .stars span { position: absolute; width: 2px; height: 2px; background: white; opacity: 0.5; animation: sparkle 2s infinite ease-in-out; }
-    @keyframes sparkle { 0%, 100% {opacity: 0.2;} 50% {opacity: 1;} }
-    nav { margin-top: 20px; display: flex; gap: 20px; z-index: 2; }
-    nav a {
-      color: #00ffb3;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      border-bottom: 2px solid transparent;
-      transition: border 0.3s;
+    input {
+      background: #333;
+      color: white;
     }
-    nav a:hover { border-bottom: 2px solid #00ffb3; }
-    .content { margin-top: 40px; text-align: center; z-index: 2; max-width: 800px; }
-    audio { display: none; }
+    button {
+      background: #00c853;
+      color: white;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      text-align: center;
+    }
   </style>
+</head>
+<body>
+  <form id="createForm">
+    <h2>Buat User & Server</h2>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Buat Sekarang</button>
+  </form>
+  <div id="result"></div>
 
-</head><body>
-<audio autoplay loop><source src="https://files.catbox.moe/ubhpu3.mp3" type="audio/mp3"></audio>
-<nav>
-  <a href="/faq">FAQ</a>
-  <a href="/support">Admin Support</a>
-  <a href="/zeroneai">Chat Zerone AI</a>
-</nav>
-<div class="content">
-  <img src="https://files.catbox.moe/8es5ms.jpeg" alt="Logo" style="width:90px;border-radius:50%;border:2px solid #00ffb3;">
-  <h1 style="color:#00ffb3;">Zerone Official</h1>
-  <p style="margin:10px 0;color:#ccc;">Welcome to my digital portfolio. Explore services and tools I've built!</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;margin-top:30px;">
-    <div><img src="https://via.placeholder.com/150" style="width:100%;border-radius:10px;"><p>Bot Telegram Otomatis</p></div>
-    <div><img src="https://via.placeholder.com/150" style="width:100%;border-radius:10px;"><p>Panel Hosting Gratis</p></div>
-    <div><img src="https://via.placeholder.com/150" style="width:100%;border-radius:10px;"><p>Landing Page Premium</p></div>
-    <div><img src="https://via.placeholder.com/150" style="width:100%;border-radius:10px;"><p>Sistem Verifikasi Bot</p></div>
-  </div>
-</div>
   <script>
-    const stars = document.createElement('div');
-    stars.className = 'stars';
-    for(let i=0;i<100;i++){
-      let s = document.createElement("span");
-      s.style.left = `${Math.random()*100}%`;
-      s.style.top = `${Math.random()*100}%`;
-      stars.appendChild(s);
-    }
-    document.body.appendChild(stars);
+    const egg = "15";
+    const nestid = "5";
+    const loc = "1";
+    const domain = "https://ramaxbuyer.shop-panel.biz.id";
+    const apikey = "ptla_u1nIoru19Q93R2kg5peiHuqNRYfpwlfzsQJrJUzurqc";
+    const capikey = "ptlc_T0XIt9kft6nnmhejcOXrW9hkJdnh1ClctVpU91xdhhr";
+
+    document.getElementById('createForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const resultBox = document.getElementById('result');
+
+      resultBox.innerText = "Membuat user...";
+
+      try {
+        // 1. Buat user
+        const userRes = await fetch("https://api.client.panel.co.id/users/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": capikey
+          },
+          body: JSON.stringify({
+            username: username,
+            email: email,
+            first_name: username,
+            last_name: "User",
+            password: password
+          })
+        });
+
+        const userData = await userRes.json();
+        if (!userRes.ok) throw new Error(userData.errors?.[0]?.detail || "Gagal buat user.");
+
+        const userId = userData.attributes?.id || userData.id;
+
+        resultBox.innerText = "User berhasil dibuat. Membuat server...";
+
+        // 2. Buat server
+        const serverRes = await fetch(`${domain}/api/application/servers`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${apikey}`,
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            name: username + "-server",
+            user: userId,
+            egg: parseInt(egg),
+            nest: parseInt(nestid),
+            location: parseInt(loc),
+            memory: 1024,
+            disk: 1024,
+            cpu: 50,
+            swap: 0,
+            io: 500,
+            databases: 0,
+            backups: 0,
+            allocations: 1,
+            docker_image: "ghcr.io/parkervcp/yolks:nodejs_18",
+            startup: "npm start",
+            environment: {
+              STARTUP_CMD: "npm start",
+              NODE_VERSION: "18"
+            },
+            feature_limits: {
+              databases: 0,
+              backups: 0,
+              allocations: 1
+            },
+            deploy: {
+              locations: [parseInt(loc)],
+              dedicated_ip: false,
+              port_range: []
+            }
+          })
+        });
+
+        const serverData = await serverRes.json();
+        if (!serverRes.ok) throw new Error(serverData.errors?.[0]?.detail || "Gagal buat server.");
+
+        resultBox.innerHTML = `
+          ✅ Server berhasil dibuat!<br>
+          <b>User:</b> ${username}<br>
+          <b>Login Panel:</b> <a href="${domain}" target="_blank">${domain}</a>
+        `;
+      } catch (err) {
+        resultBox.innerHTML = `<span style="color:red;">❌ ${err.message}</span>`;
+      }
+    });
   </script>
-</body></html>
+</body>
+  </html>
+  
