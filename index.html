@@ -7,80 +7,115 @@
   <link rel="icon" href="https://files.catbox.moe/8es5ms.jpeg" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-    * {margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth;}
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body {
       font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at top, #0f0f0f, #000);
+      background: linear-gradient(to bottom, #1f1c2c, #928dab);
       color: #fff;
       padding: 20px;
+      position: relative;
+      transition: 0.3s ease;
+    }
+    body.light {
+      background: linear-gradient(to bottom, #f7f7ff, #dbeafe);
+      color: #111;
+    }
+    .stars-bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: transparent url('https://i.gifer.com/Yh.gif') repeat;
+      opacity: 0.1;
+      pointer-events: none;
     }
     header {
       text-align: center;
       margin-bottom: 40px;
+      position: relative;
     }
     header h1 {
-      font-size: 2.5em;
-      color: #00ffb2;
+      font-size: 2.8em;
+      color: #00ffd5;
+      text-shadow: 0 0 10px #00ffd5;
+    }
+    .toggle-theme {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      color: #00ffd5;
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 25px;
       margin-bottom: 50px;
       flex-wrap: wrap;
     }
     nav a {
       text-decoration: none;
-      color: #fff;
-      padding: 10px 20px;
-      border: 2px solid #00ffb2;
-      border-radius: 10px;
+      color: #00fff2;
+      padding: 10px 22px;
+      border: 2px solid #00ffd5;
+      border-radius: 12px;
+      background-color: rgba(0, 0, 0, 0.2);
       transition: 0.3s;
+      box-shadow: 0 0 10px #00ffd5;
     }
     nav a:hover {
-      background: #00ffb2;
+      background: #00ffd5;
       color: #000;
     }
     section {
       margin-bottom: 60px;
     }
     .card {
-      background: #111;
-      border: 1px solid #00ffb2;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid #00ffd5;
       padding: 20px;
       border-radius: 15px;
       margin: 10px auto;
       max-width: 600px;
       transition: 0.3s;
+      box-shadow: 0 0 10px rgba(0,255,213,0.3);
     }
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 15px #00ffb2;
+      box-shadow: 0 0 20px #00ffd5;
     }
     footer {
       text-align: center;
       padding: 20px;
-      border-top: 1px solid #444;
+      border-top: 1px solid #666;
       margin-top: 40px;
       font-size: 0.9em;
+      color: #ccc;
     }
     .form-feedback textarea, .review-form textarea {
       width: 100%;
       max-width: 600px;
       height: 100px;
-      margin: 0 auto;
-      display: block;
+      margin: 10px auto;
       padding: 10px;
       border-radius: 10px;
-      border: 1px solid #00ffb2;
+      border: 1px solid #00ffd5;
       background: #222;
       color: #fff;
       resize: none;
     }
+    body.light .form-feedback textarea,
+    body.light .review-form textarea {
+      background: #f0f0f0;
+      color: #000;
+    }
     .form-feedback button, .review-form button {
       display: block;
-      margin: 15px auto;
-      background: #00ffb2;
+      margin: 10px auto;
+      background: #00ffd5;
       color: #000;
       border: none;
       padding: 10px 30px;
@@ -89,15 +124,13 @@
       transition: 0.3s;
     }
     .form-feedback button:hover, .review-form button:hover {
-      background: #00c994;
+      background: #00c9a7;
     }
     .stars {
       text-align: center;
       margin: 10px 0;
     }
-    .stars input {
-      display: none;
-    }
+    .stars input { display: none; }
     .stars label {
       font-size: 30px;
       color: #444;
@@ -109,38 +142,65 @@
       color: gold;
     }
     .review-list {
-      max-height: 300px;
+      max-height: 250px;
       overflow: hidden;
       position: relative;
+      margin-top: 20px;
     }
     .review-scroll {
       display: flex;
       flex-direction: column;
-      animation: scrollReviews 15s linear infinite;
+      gap: 15px;
+      animation: scrollReviews 20s linear infinite;
     }
     @keyframes scrollReviews {
-      0% {transform: translateY(0);}
-      100% {transform: translateY(-100%);}
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+    .card a {
+      color: #00ffd5;
+      font-weight: bold;
+    }
+    .card a:hover {
+      text-decoration: underline;
+    }
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00ffd5;
+      color: #000;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffd5;
+      display: none;
+      z-index: 999;
     }
   </style>
 </head>
 <body>
+  <div class="stars-bg"></div>
+
   <header>
     <h1>Zerone Official</h1>
+    <button class="toggle-theme" onclick="toggleTheme()">🌙</button>
   </header>
 
   <nav>
-    <a href="#community">Community</a>
-    <a href="#contact">Contact</a>
-    <a href="#portofolio">Portofolio</a>
+    <a href="#community">🌐 Community</a>
+    <a href="#contact">📞 Contact</a>
+    <a href="#portofolio">🗂️ Portofolio</a>
   </nav>
 
   <section id="community">
     <h2>Community Links</h2>
-    <div class="card">🔗 <a href="https://chat.whatsapp.com/Eo62y4vuqrVHYwLlGf5IPY" target="_blank">Grup WhatsApp Zerone</a></div>
-    <div class="card">📢 <a href="https://whatsapp.com/channel/0029Vb2yK5VLCoX4w8rbQZ2I" target="_blank">Channel WhatsApp</a></div>
-    <div class="card">💬 <a href="https://t.me/ZeroneOfficial" target="_blank">Telegram</a></div>
-    <div class="card">🎥 <a href="https://www.youtube.com/@ZeroOffc" target="_blank">YouTube Channel</a></div>
+    <div class="card">💬 Grup WhatsApp: <a href="https://chat.whatsapp.com/Eo62y4vuqrVHYwLlGf5IPY" target="_blank">Gabung Sekarang</a></div>
+    <div class="card">📢 Channel WhatsApp: <a href="https://whatsapp.com/channel/0029Vb2yK5VLCoX4w8rbQZ2I" target="_blank">Lihat Channel</a></div>
+    <div class="card">✈️ Telegram: <a href="https://t.me/ZeroneOfficial" target="_blank">Join Telegram</a></div>
+    <div class="card">🎥 YouTube: <a href="https://www.youtube.com/@ZeroOffc" target="_blank">Tonton Sekarang</a></div>
   </section>
 
   <section id="contact">
@@ -152,11 +212,11 @@
   <section id="portofolio">
     <h2>Portofolio</h2>
     <div class="card">
-      <strong>Bot Telegram Store</strong><br>
+      <strong>🤖 Bot Telegram Store</strong><br>
       Bot auto order dengan fitur QRIS, kirim produk otomatis, dan kontrol website.
     </div>
     <div class="card">
-      <strong>Landing Page Zerone Market</strong><br>
+      <strong>🌐 Landing Page Zerone Market</strong><br>
       Website produk digital dengan integrasi Vercel dan GitHub.
     </div>
   </section>
@@ -179,6 +239,7 @@
         </div>
       </div>
     </div>
+
     <div class="review-form">
       <h3>Kirim Ulasan Kamu</h3>
       <form onsubmit="event.preventDefault(); alert('Ulasan terkirim. Terima kasih!');">
@@ -199,12 +260,35 @@
     <h2>Kirim Masukan</h2>
     <form onsubmit="event.preventDefault(); alert('Masukan terkirim. Terima kasih!');">
       <textarea placeholder="Tulis saran atau pesan kamu di sini..."></textarea>
-      <button type="submit">Kirim</button>
+      <button type="submit">Kirim Masukan</button>
     </form>
   </section>
 
   <footer>
     <p>&copy; 2025 Zerone Official. All rights reserved.</p>
   </footer>
+
+  <button id="backToTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    const toggleBtn = document.querySelector(".toggle-theme");
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      toggleBtn.textContent = document.body.classList.contains("light") ? "🌞" : "🌙";
+    }
+
+    const backToTopBtn = document.getElementById("backToTop");
+    window.onscroll = () => {
+      if (document.documentElement.scrollTop > 100) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
+      }
+    };
+    function scrollToTop() {
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 </body>
-</html>
+      </html>
+    
