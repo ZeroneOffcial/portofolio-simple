@@ -5,92 +5,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zerone Official | Portofolio</title>
   <link rel="icon" href="https://files.catbox.moe/8es5ms.jpeg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
+
     body {
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background: radial-gradient(circle at 50% 0%, #0f0c29, #302b63, #24243e);
       color: #fff;
       overflow-x: hidden;
     }
+
     header {
       text-align: center;
       padding: 4rem 1rem 2rem;
+      position: relative;
     }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(45deg, #00ffff, #ff00ff);
+      filter: blur(60px);
+      z-index: 0;
+    }
+
     header img {
-      width: 100px;
+      width: 120px;
       border-radius: 50%;
-      box-shadow: 0 0 30px rgba(0,255,255,0.5);
+      border: 4px solid #0ff;
+      z-index: 1;
+      position: relative;
+      box-shadow: 0 0 25px #0ff;
     }
+
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-top: 1rem;
       color: #0ff;
+      text-shadow: 0 0 10px #0ff;
     }
+
     header p {
       color: #ccc;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
     }
-    section {
+
+    .section {
       padding: 2rem 1rem;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
     }
+
     .about {
       text-align: center;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       line-height: 1.8;
       color: #e0e0e0;
+      margin-bottom: 2rem;
     }
+
     .portfolio {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
     }
+
     .card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 16px;
-      backdrop-filter: blur(10px);
       padding: 1rem;
-      transition: transform 0.3s ease;
       border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(20px);
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .card:hover {
-      transform: translateY(-10px);
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, #0ff, #f0f, #0ff);
+      transform: rotate(45deg);
+      animation: shine 5s linear infinite;
+      opacity: 0.2;
     }
+
+    @keyframes shine {
+      0% { transform: translate(-100%, -100%) rotate(45deg); }
+      100% { transform: translate(100%, 100%) rotate(45deg); }
+    }
+
     .card img {
       width: 100%;
       border-radius: 12px;
     }
+
     .card h3 {
       margin: 1rem 0 0.5rem;
       color: #0ff;
     }
+
     .socials {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .socials a {
-      color: #0ff;
-      font-size: 1.5rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .socials a:hover {
-      color: #fff;
-    }
-    .contact {
+      gap: 1.5rem;
       margin-top: 3rem;
     }
+
+    .socials a {
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      border: 2px solid #0ff;
+      color: #0ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      background: #0ff;
+      color: #000;
+      box-shadow: 0 0 15px #0ff;
+    }
+
     .contact form {
       display: flex;
       flex-direction: column;
@@ -98,7 +151,9 @@
       background: rgba(255,255,255,0.05);
       padding: 2rem;
       border-radius: 16px;
+      margin-top: 3rem;
     }
+
     .contact input, .contact textarea {
       padding: 0.8rem;
       border: none;
@@ -106,6 +161,7 @@
       background: #1c1f2e;
       color: #fff;
     }
+
     .contact button {
       padding: 0.8rem;
       border: none;
@@ -114,58 +170,60 @@
       font-weight: bold;
       border-radius: 8px;
       cursor: pointer;
+      transition: 0.3s;
     }
+
     .contact button:hover {
       background: #00e6e6;
     }
+
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      color: #666;
+      color: #888;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="https://files.catbox.moe/8es5ms.jpeg" alt="Logo Zerone" />
+    <img src="https://files.catbox.moe/8es5ms.jpeg" alt="Zerone Logo">
     <h1>Zerone Official</h1>
     <p>Freelancer | Bot Developer | Script Creator</p>
   </header>
 
-  <section class="about">
-    <p>Saya adalah pengembang bot Telegram & WhatsApp, pembuat script panel, serta menyediakan berbagai layanan digital seperti deploy otomatis, toko digital, dan integrasi sistem API. Semua project dilakukan dengan profesional dan cepat!</p>
+  <section class="section about">
+    <p>Saya pengembang bot Telegram & WhatsApp, spesialis panel otomatis, dan sistem toko digital terintegrasi dengan API. Semua project profesional dan terstruktur!</p>
   </section>
 
-  <section class="portfolio">
+  <section class="section portfolio">
     <div class="card">
       <img src="https://via.placeholder.com/400x250?text=ZeroneBot+V1" alt="ZeroneBot V1">
       <h3>ZeroneBot V1</h3>
-      <p>Bot Telegram multi-fungsi untuk jualan digital & kontrol website.</p>
+      <p>Bot Telegram multifungsi dengan fitur toko digital, kontrol website & deploy panel.</p>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/400x250?text=Panel+Auto+Deploy" alt="Panel Script">
-      <h3>Script Panel Auto Deploy</h3>
-      <p>Script otomatis deploy Pterodactyl hanya 1 klik.</p>
+      <img src="https://via.placeholder.com/400x250?text=Script+Panel" alt="Panel Script">
+      <h3>Script Auto Deploy Panel</h3>
+      <p>Instalasi panel Pterodactyl otomatis 1 klik untuk server kamu.</p>
     </div>
     <div class="card">
       <img src="https://via.placeholder.com/400x250?text=Landing+Page" alt="Landing Page">
       <h3>Landing Page Toko</h3>
-      <p>Website toko digital modern dengan kontrol lewat bot Telegram.</p>
+      <p>Website toko digital modern, bisa dikontrol langsung dari bot Telegram.</p>
     </div>
   </section>
 
-  <section class="socials">
+  <section class="section socials">
     <a href="https://wa.me/6283840390064" target="_blank">WhatsApp</a>
-    <a href="https://chat.whatsapp.com/CEoqekcix8gDTrCJPZJGub?mode=ac_t" target="_blank">Grup WhatsApp</a>
-    <a href="https://chat.whatsapp.com/EmTDDEtSLzYDDUqrr0MkTk?mode=ac_t" target="_blank">Group WhatsApp</a>
-    <a href="https://t.me/publikchangli" target="_blank">Group Telegram</a>
-    <a href="https://whatsapp.com/channel/0029Vb2yK5VLCoX4w8rbQZ2I" target="_blank">Channel WhatsApp</a>
     <a href="https://t.me/ZeroneOfficial" target="_blank">Telegram</a>
     <a href="https://www.youtube.com/@ZeroOffc" target="_blank">YouTube</a>
+    <a href="https://chat.whatsapp.com/Eo62y4vuqrVHYwLlGf5IPY" target="_blank">Grup WhatsApp</a>
+    <a href="https://whatsapp.com/channel/0029Vb2yK5VLCoX4w8rbQZ2I" target="_blank">Channel WhatsApp</a>
   </section>
 
-  <section class="contact">
-    <form action="https://wa.me/6283840390064" method="GET" target="_blank" onsubmit="return submitForm()">
+  <section class="section contact">
+    <form onsubmit="return submitForm()">
       <input type="text" id="nama" placeholder="Nama Kamu" required>
       <textarea id="pesan" rows="4" placeholder="Pesan untuk admin..." required></textarea>
       <button type="submit">Kirim ke Admin</button>
@@ -185,6 +243,6 @@
       return false;
     }
   </script>
+
 </body>
-  </html>
-  
+</html>
