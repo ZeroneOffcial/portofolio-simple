@@ -1,153 +1,189 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Create Panel User & Server</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zerone Official | Portofolio</title>
+  <link rel="icon" href="https://files.catbox.moe/8es5ms.jpeg" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
     body {
-      background: #121212;
-      color: white;
-      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+    header img {
+      width: 100px;
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(0,255,255,0.5);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-top: 1rem;
+      color: #0ff;
+    }
+    header p {
+      color: #ccc;
+      font-size: 1rem;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .about {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #e0e0e0;
+    }
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .card h3 {
+      margin: 1rem 0 0.5rem;
+      color: #0ff;
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .socials a {
+      color: #0ff;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .socials a:hover {
+      color: #fff;
+    }
+    .contact {
+      margin-top: 3rem;
+    }
+    .contact form {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      gap: 1rem;
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 16px;
     }
-    form {
-      background: #1e1e1e;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #00000080;
-      width: 300px;
-    }
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
+    .contact input, .contact textarea {
+      padding: 0.8rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
+      background: #1c1f2e;
+      color: #fff;
     }
-    input {
-      background: #333;
-      color: white;
-    }
-    button {
-      background: #00c853;
-      color: white;
+    .contact button {
+      padding: 0.8rem;
+      border: none;
+      background: #0ff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
       cursor: pointer;
     }
-    #result {
-      margin-top: 20px;
+    .contact button:hover {
+      background: #00e6e6;
+    }
+    footer {
       text-align: center;
+      padding: 2rem 1rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <form id="createForm">
-    <h2>Buat User & Server</h2>
-    <input type="text" id="username" placeholder="Username" required>
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button type="submit">Buat Sekarang</button>
-  </form>
-  <div id="result"></div>
+  <header>
+    <img src="https://files.catbox.moe/8es5ms.jpeg" alt="Logo Zerone" />
+    <h1>Zerone Official</h1>
+    <p>Freelancer | Bot Developer | Script Creator</p>
+  </header>
+
+  <section class="about">
+    <p>Saya adalah pengembang bot Telegram & WhatsApp, pembuat script panel, serta menyediakan berbagai layanan digital seperti deploy otomatis, toko digital, dan integrasi sistem API. Semua project dilakukan dengan profesional dan cepat!</p>
+  </section>
+
+  <section class="portfolio">
+    <div class="card">
+      <img src="https://via.placeholder.com/400x250?text=ZeroneBot+V1" alt="ZeroneBot V1">
+      <h3>ZeroneBot V1</h3>
+      <p>Bot Telegram multi-fungsi untuk jualan digital & kontrol website.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x250?text=Panel+Auto+Deploy" alt="Panel Script">
+      <h3>Script Panel Auto Deploy</h3>
+      <p>Script otomatis deploy Pterodactyl hanya 1 klik.</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x250?text=Landing+Page" alt="Landing Page">
+      <h3>Landing Page Toko</h3>
+      <p>Website toko digital modern dengan kontrol lewat bot Telegram.</p>
+    </div>
+  </section>
+
+  <section class="socials">
+    <a href="https://wa.me/6283840390064" target="_blank">WhatsApp</a>
+    <a href="https://chat.whatsapp.com/CEoqekcix8gDTrCJPZJGub?mode=ac_t" target="_blank">Grup WhatsApp</a>
+    <a href="https://chat.whatsapp.com/EmTDDEtSLzYDDUqrr0MkTk?mode=ac_t" target="_blank">Group WhatsApp</a>
+    <a href="https://t.me/publikchangli" target="_blank">Group Telegram</a>
+    <a href="https://whatsapp.com/channel/0029Vb2yK5VLCoX4w8rbQZ2I" target="_blank">Channel WhatsApp</a>
+    <a href="https://t.me/ZeroneOfficial" target="_blank">Telegram</a>
+    <a href="https://www.youtube.com/@ZeroOffc" target="_blank">YouTube</a>
+  </section>
+
+  <section class="contact">
+    <form action="https://wa.me/6283840390064" method="GET" target="_blank" onsubmit="return submitForm()">
+      <input type="text" id="nama" placeholder="Nama Kamu" required>
+      <textarea id="pesan" rows="4" placeholder="Pesan untuk admin..." required></textarea>
+      <button type="submit">Kirim ke Admin</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Zerone Official. All rights reserved.
+  </footer>
 
   <script>
-    const egg = "15";
-    const nestid = "5";
-    const loc = "1";
-    const domain = "https://ramaxbuyer.shop-panel.biz.id";
-    const apikey = "ptla_u1nIoru19Q93R2kg5peiHuqNRYfpwlfzsQJrJUzurqc";
-    const capikey = "ptlc_T0XIt9kft6nnmhejcOXrW9hkJdnh1ClctVpU91xdhhr";
-
-    document.getElementById('createForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const username = document.getElementById('username').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const resultBox = document.getElementById('result');
-
-      resultBox.innerText = "Membuat user...";
-
-      try {
-        // 1. Buat user
-        const userRes = await fetch("https://api.client.panel.co.id/users/create", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": capikey
-          },
-          body: JSON.stringify({
-            username: username,
-            email: email,
-            first_name: username,
-            last_name: "User",
-            password: password
-          })
-        });
-
-        const userData = await userRes.json();
-        if (!userRes.ok) throw new Error(userData.errors?.[0]?.detail || "Gagal buat user.");
-
-        const userId = userData.attributes?.id || userData.id;
-
-        resultBox.innerText = "User berhasil dibuat. Membuat server...";
-
-        // 2. Buat server
-        const serverRes = await fetch(`${domain}/api/application/servers`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${apikey}`,
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            name: username + "-server",
-            user: userId,
-            egg: parseInt(egg),
-            nest: parseInt(nestid),
-            location: parseInt(loc),
-            memory: 1024,
-            disk: 1024,
-            cpu: 50,
-            swap: 0,
-            io: 500,
-            databases: 0,
-            backups: 0,
-            allocations: 1,
-            docker_image: "ghcr.io/parkervcp/yolks:nodejs_18",
-            startup: "npm start",
-            environment: {
-              STARTUP_CMD: "npm start",
-              NODE_VERSION: "18"
-            },
-            feature_limits: {
-              databases: 0,
-              backups: 0,
-              allocations: 1
-            },
-            deploy: {
-              locations: [parseInt(loc)],
-              dedicated_ip: false,
-              port_range: []
-            }
-          })
-        });
-
-        const serverData = await serverRes.json();
-        if (!serverRes.ok) throw new Error(serverData.errors?.[0]?.detail || "Gagal buat server.");
-
-        resultBox.innerHTML = `
-          ✅ Server berhasil dibuat!<br>
-          <b>User:</b> ${username}<br>
-          <b>Login Panel:</b> <a href="${domain}" target="_blank">${domain}</a>
-        `;
-      } catch (err) {
-        resultBox.innerHTML = `<span style="color:red;">❌ ${err.message}</span>`;
-      }
-    });
+    function submitForm() {
+      const nama = document.getElementById('nama').value;
+      const pesan = document.getElementById('pesan').value;
+      const url = `https://wa.me/6283840390064?text=Halo%20admin%2C%20saya%20${encodeURIComponent(nama)}%20ingin%20menyampaikan%20pesan%3A%20${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+      return false;
+    }
   </script>
 </body>
   </html>
