@@ -6,111 +6,135 @@
   <title>Vinzz Cloud</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0b0c10;
+      background-color: #102040;
       color: white;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     header {
-      padding: 3rem 1rem;
       text-align: center;
+      padding: 2rem 1rem;
+      background: #112255;
+    }
+    header img {
+      width: 60px;
+      vertical-align: middle;
+      margin-right: 10px;
     }
     header h1 {
-      font-size: 3rem;
+      display: inline-block;
+      font-size: 2rem;
       font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+      vertical-align: middle;
     }
     .btn {
-      background-color: #00c9a7;
+      background-color: #3ec6ff;
       color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
       display: inline-block;
+      margin-top: 1rem;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .hero img {
+      max-width: 90%;
+      margin: 1rem auto;
+      animation: fadein 2s ease-in-out;
+    }
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #ccc;
     }
     section {
-      padding: 4rem 1rem;
+      padding: 3rem 1rem;
       max-width: 900px;
       margin: 0 auto;
     }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-in-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .card {
-      background: #1f1f1f;
-      padding: 2rem;
+      background: #1e2a45;
+      padding: 1.5rem;
       border-radius: 1rem;
       margin-bottom: 2rem;
     }
-    .card h3 { margin-bottom: 0.5rem; }
     footer {
-      background: #111;
+      background: #0a0f1a;
       padding: 2rem;
       text-align: center;
       font-size: 0.9rem;
-      color: #bbb;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Vinzz Cloud Panel</h1>
-    <p>Layanan panel premium dengan harga bersahabat untuk kebutuhan Anda</p>
-    <a href="#daftar" class="btn">Daftar Sekarang</a>
+    <img src="https://alimcloud.id/assets/img/logo.png" alt="Logo" />
+    <h1>Vinzz Store</h1>
+    <br />
+    <a class="btn" href="#produk">BELI SEKARANG</a>
   </header>
 
-  <section>
-    <h2>Keunggulan Layanan</h2>
-    <div class="card">
-      <h3>Uptime 99.9%</h3>
-      <p>Server stabil dan handal, cocok untuk kebutuhan bot atau hosting.</p>
-    </div>
-    <div class="card">
-      <h3>Harga Terjangkau</h3>
-      <p>Paket mulai dari Rp5.000 saja, ramah kantong pelajar.</p>
-    </div>
-    <div class="card">
-      <h3>Support 24/7</h3>
-      <p>Tim kami siap membantu kapan pun Anda butuh bantuan.</p>
-    </div>
-  </section>
+  <div class="hero">
+    <img src="https://alimcloud.id/assets/img/hero.png" alt="Hero Image" />
+    <h2>Layanan Produk Digital Terpercaya</h2>
+    <p>Kualitas Terbaik, Termurah, Otomatis, Best Seller</p>
+    <a class="btn" href="#produk">LIHAT PRODUK</a>
+  </div>
 
-  <section id="daftar">
-    <h2>Harga Paket</h2>
-    <div class="card">
-      <h3>Paket Basic</h3>
-      <p>1vCore, 1GB RAM - Rp5.000 / bulan</p>
+  <section id="produk">
+    <div class="card fade-in">
+      <h3>Panel Bot WhatsApp</h3>
+      <p>Paket panel hemat dan powerful untuk kebutuhan bot WA kamu.</p>
     </div>
-    <div class="card">
-      <h3>Paket Pro</h3>
-      <p>2vCore, 2GB RAM - Rp10.000 / bulan</p>
+    <div class="card fade-in">
+      <h3>Paket VPS Murah</h3>
+      <p>Server stabil dan cepat, cocok untuk aplikasi dan bot Telegram.</p>
     </div>
-  </section>
-
-  <section>
-    <h2>FAQ</h2>
-    <div class="card">
-      <h3>Apakah bisa untuk bot WhatsApp?</h3>
-      <p>Tentu saja! Server kami optimal untuk penggunaan bot.</p>
+    <div class="card fade-in">
+      <h3>Hosting Otomatis</h3>
+      <p>Auto setup, langsung online dalam hitungan menit.</p>
     </div>
-    <div class="card">
-      <h3>Pembayaran lewat apa aja?</h3>
-      <p>Kami menerima Dana, OVO, Gopay, dan transfer bank.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Kontak</h2>
-    <p>Hubungi kami via WhatsApp: <a class="btn" href="https://wa.me/628xxxxxxxxxx">Chat Sekarang</a></p>
   </section>
 
   <footer>
-    &copy; 2025 Vinzz Cloud. All rights reserved.
+    &copy; 2025 Vinzz Store. All rights reserved.
   </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    faders.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
