@@ -1,177 +1,116 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Order Produk</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vinzz Cloud</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-    }
-
-    .produk {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 20px;
-      width: 300px;
-    }
-
-    .quantity-control {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-    }
-
-    .quantity-control button {
-      padding: 5px 10px;
-      font-size: 18px;
-    }
-
-    .quantity-control input {
-      width: 40px;
-      text-align: center;
-      margin: 0 10px;
-      font-size: 16px;
-    }
-
-    .beli-btn {
-      margin-top: 10px;
-      padding: 10px;
-      background-color: green;
+      font-family: 'Inter', sans-serif;
+      background-color: #0b0c10;
       color: white;
-      border: none;
-      cursor: pointer;
+      line-height: 1.6;
     }
-
-    .beli-btn:hover {
-      background-color: darkgreen;
-    }
-
-    /* Floating WhatsApp Button */
-    .wa-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: #fff;
-      border-radius: 50px;
+    header {
+      padding: 3rem 1rem;
       text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 3px #999;
-      z-index: 100;
     }
-
-    .wa-float:hover {
-      background-color: #1ebea5;
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
     }
-
-    .wa-icon {
-      margin-top: 14px;
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background-color: #00c9a7;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+    }
+    section {
+      padding: 4rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #1f1f1f;
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+    .card h3 { margin-bottom: 0.5rem; }
+    footer {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #bbb;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Vinzz Cloud Panel</h1>
+    <p>Layanan panel premium dengan harga bersahabat untuk kebutuhan Anda</p>
+    <a href="#daftar" class="btn">Daftar Sekarang</a>
+  </header>
 
-  <h2>Order Produk</h2>
-
-  <!-- Produk VPN -->
-  <div class="produk">
-    <h3>VPN AVG</h3>
-    <div class="quantity-control">
-      <button onclick="decrementQuantity('vpn-quantity-input')">-</button>
-      <input type="text" id="vpn-quantity-input" value="1" readonly>
-      <button onclick="incrementQuantity('vpn-quantity-input')">+</button>
+  <section>
+    <h2>Keunggulan Layanan</h2>
+    <div class="card">
+      <h3>Uptime 99.9%</h3>
+      <p>Server stabil dan handal, cocok untuk kebutuhan bot atau hosting.</p>
     </div>
-    <button class="beli-btn" onclick="updateWhatsAppLinkForVpn()">Beli via WhatsApp</button>
-  </div>
-
-  <!-- Produk RDP 3 Bulan -->
-  <div class="produk">
-    <h3>RDP/VPS 3 Bulan</h3>
-    <div class="quantity-control">
-      <button onclick="decrementQuantity('rdp-quantity-input')">-</button>
-      <input type="text" id="rdp-quantity-input" value="1" readonly>
-      <button onclick="incrementQuantity('rdp-quantity-input')">+</button>
+    <div class="card">
+      <h3>Harga Terjangkau</h3>
+      <p>Paket mulai dari Rp5.000 saja, ramah kantong pelajar.</p>
     </div>
-    <button class="beli-btn" onclick="updateWhatsAppLinkForRDP()">Beli via WhatsApp</button>
-  </div>
-
-  <!-- Produk RDP 1 Tahun -->
-  <div class="produk">
-    <h3>RDP/VPS 1 Tahun</h3>
-    <div class="quantity-control">
-      <button onclick="decrementQuantity('rdp1-quantity-input')">-</button>
-      <input type="text" id="rdp1-quantity-input" value="1" readonly>
-      <button onclick="incrementQuantity('rdp1-quantity-input')">+</button>
+    <div class="card">
+      <h3>Support 24/7</h3>
+      <p>Tim kami siap membantu kapan pun Anda butuh bantuan.</p>
     </div>
-    <button class="beli-btn" onclick="updateWhatsAppLinkForRDP1()">Beli via WhatsApp</button>
-  </div>
+  </section>
 
-  <!-- Produk VULTR -->
-  <div class="produk">
-    <h3>VULTR $255</h3>
-    <div class="quantity-control">
-      <button onclick="decrementQuantity('vultr-quantity-input')">-</button>
-      <input type="text" id="vultr-quantity-input" value="1" readonly>
-      <button onclick="incrementQuantity('vultr-quantity-input')">+</button>
+  <section id="daftar">
+    <h2>Harga Paket</h2>
+    <div class="card">
+      <h3>Paket Basic</h3>
+      <p>1vCore, 1GB RAM - Rp5.000 / bulan</p>
     </div>
-    <button class="beli-btn" onclick="updateWhatsAppLinkForVultr()">Beli via WhatsApp</button>
-  </div>
+    <div class="card">
+      <h3>Paket Pro</h3>
+      <p>2vCore, 2GB RAM - Rp10.000 / bulan</p>
+    </div>
+  </section>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/6285753323094" class="wa-float" target="_blank" title="Chat Admin">
-    <div class="wa-icon">💬</div>
-  </a>
+  <section>
+    <h2>FAQ</h2>
+    <div class="card">
+      <h3>Apakah bisa untuk bot WhatsApp?</h3>
+      <p>Tentu saja! Server kami optimal untuk penggunaan bot.</p>
+    </div>
+    <div class="card">
+      <h3>Pembayaran lewat apa aja?</h3>
+      <p>Kami menerima Dana, OVO, Gopay, dan transfer bank.</p>
+    </div>
+  </section>
 
-  <!-- JavaScript -->
-  <script>
-    function incrementQuantity(inputId) {
-      var input = document.getElementById(inputId);
-      var value = parseInt(input.value);
-      input.value = isNaN(value) ? 1 : value + 1;
-    }
+  <section>
+    <h2>Kontak</h2>
+    <p>Hubungi kami via WhatsApp: <a class="btn" href="https://wa.me/628xxxxxxxxxx">Chat Sekarang</a></p>
+  </section>
 
-    function decrementQuantity(inputId) {
-      var input = document.getElementById(inputId);
-      var value = parseInt(input.value);
-      if (!isNaN(value) && value > 1) {
-        input.value = value - 1;
-      }
-    }
-
-    function updateWhatsAppLinkForVpn() {
-      var jumlah = document.getElementById("vpn-quantity-input").value;
-      var pesan = `Halo Admin, saya ingin beli produk VPN AVG sebanyak ${jumlah} akun.`;
-      var nomor = "6285753323094";
-      var url = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
-      window.open(url, '_blank');
-    }
-
-    function updateWhatsAppLinkForRDP() {
-      var jumlah = document.getElementById("rdp-quantity-input").value;
-      var pesan = `Halo Admin, saya ingin beli produk RDP/VPS 3 BULAN sebanyak ${jumlah} akun.`;
-      var nomor = "6285753323094";
-      var url = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
-      window.open(url, '_blank');
-    }
-
-    function updateWhatsAppLinkForRDP1() {
-      var jumlah = document.getElementById("rdp1-quantity-input").value;
-      var pesan = `Halo Admin, saya ingin beli produk RDP/VPS 1 TAHUN sebanyak ${jumlah} akun.`;
-      var nomor = "6285753323094";
-      var url = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
-      window.open(url, '_blank');
-    }
-
-    function updateWhatsAppLinkForVultr() {
-      var jumlah = document.getElementById("vultr-quantity-input").value;
-      var pesan = `Halo Admin, saya ingin beli produk VULTR 255$ sebanyak ${jumlah} akun.`;
-      var nomor = "6285753323094";
-      var url = `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`;
-      window.open(url, '_blank');
-    }
-  </script>
-
+  <footer>
+    &copy; 2025 Vinzz Cloud. All rights reserved.
+  </footer>
 </body>
 </html>
