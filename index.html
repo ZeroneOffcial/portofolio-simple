@@ -1,333 +1,289 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Vinzz Store</title>
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
- <style>
-   {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-  }
-  body {
-   font-family: 'Inter', sans-serif;
-   background-color: #1c2d57;
-   color: white;
-   line-height: 1.6;
-   overflow-x: hidden;
-  }
-  header {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 1rem 2rem;
-   background: #22376b;
-  }
-  header h1 {
-   font-size: 1.5rem;
-  }
-  .btn {
-   background-color: #52c3f1;
-   color: white;
-   padding: 0.5rem 1.2rem;
-   border-radius: 30px;
-   font-weight: 600;
-   text-decoration: none;
-  }
-  .hero {
-   text-align: center;
-   padding: 0;
-   background: #22376b;
-  }
-  .hero img {
-   width: 100%;
-   max-width: 100%;
-   display: block;
-   margin: 0 auto;
-  }
-  .hero-text {
-   padding: 2rem 1rem 3rem;
-  }
-  .hero-text h2 {
-   font-size: 1.8rem;
-   margin-top: 1.5rem;
-   margin-bottom: 0.5rem;
-  }
-  .hero-text p {
-   color: #ddd;
-   font-size: 1rem;
-   margin-bottom: 1.5rem;
-  }
-  .hero-text .btn {
-   background-color: #4da8da;
-  }
-  section {
-   padding: 3rem 1rem;
-   max-width: 900px;
-   margin: 0 auto;
-  }
-  .fade-in {
-   opacity: 0;
-   transform: translateY(30px);
-   transition: all 0.8s ease-in-out;
-  }
-  .fade-in.show {
-   opacity: 1;
-   transform: translateY(0);
-  }
-  .card {
-   background: #2e4a7d;
-   padding: 1.5rem;
-   border-radius: 1rem;
-   margin-bottom: 2rem;
-  }
-  .product-card {
-   background: #fff;
-   color: #222;
-   border-radius: 1rem;
-   padding: 1.5rem;
-   margin-bottom: 2rem;
-   text-align: center;
-   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  }
-  .product-card img {
-   width: 100%;
-   border-radius: 12px;
-   margin-bottom: 15px;
-  }
-  .product-card h3 {
-   font-size: 1.2rem;
-   margin-bottom: 10px;
-   color: #1c2d57;
-  }
-  .product-card .price {
-   font-size: 1.4rem;
-   color: #0af;
-   margin: 10px 0;
-  }
-  .product-card ul {
-   text-align: left;
-   margin: 10px auto;
-   padding-left: 20px;
-  }
-  .product-card ul li {
-   margin-bottom: 6px;
-  }
-  .stock-control {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 10px;
-   margin-top: 15px;
-  }
-  .stock-control button {
-   background: #0af;
-   color: white;
-   border: none;
-   padding: 10px;
-   border-radius: 50%;
-   font-size: 1.2rem;
-   width: 40px;
-   height: 40px;
-   cursor: pointer;
-  }
-  .quantity {
-   font-size: 1.2rem;
-   min-width: 30px;
-  }
-  footer {
-   background: #fff;
-   padding: 40px 20px;
-   text-align: center;
-   font-size: 14px;
-   color: #333;
-  }
-  .telegram-float,
-  .wa-float {
-   position: fixed;
-   width: 60px;
-   height: 60px;
-   bottom: 80px;
-   right: 20px;
-   background-color: #25d366;
-   border-radius: 50%;
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-   z-index: 1000;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   transition: transform 0.3s ease;
-  }
-  .telegram-float img,
-  .wa-float img {
-   width: 32px;
-   height: 32px;
-  }
-  .telegram-float:hover,
-  .wa-float:hover {
-   transform: scale(1.1);
-  }
-  .scroll-top {
-   position: fixed;
-   bottom: 20px;
-   right: 20px;
-   background: #29b6f6;
-   border: none;
-   border-radius: 50%;
-   width: 50px;
-   height: 50px;
-   color: white;
-   font-size: 24px;
-   cursor: pointer;
-   z-index: 999;
-  }
-  details {
-   background: #eee;
-   color: #222;
-   padding: 1rem;
-   border-radius: 10px;
-   margin-bottom: 10px;
-  }
-  details summary {
-   cursor: pointer;
-   font-weight: bold;
-   font-size: 1rem;
-  }
-  details p {
-   margin-top: 10px;
-   font-size: 0.9rem;
-  }
- </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vinzz Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #1c2d57;
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #22376b;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    .btn {
+      background-color: #52c3f1;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .hero {
+      text-align: center;
+      padding: 0;
+      background: #22376b;
+    }
+    .hero img {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    .hero-text {
+      padding: 2rem 1rem 3rem;
+    }
+    .hero-text h2 {
+      font-size: 1.8rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero-text p {
+      color: #ddd;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-text .btn {
+      background-color: #4da8da;
+    }
+    section {
+      padding: 3rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-in-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .product-card {
+      background: #2e4a7d;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .product-card .price {
+      color: #ffd700;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .product-card ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .product-card ul li {
+      margin-bottom: 0.3rem;
+    }
+    .stock-control {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .stock-control button {
+      background: #52c3f1;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .stock-control .quantity {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    footer {
+      background: #172647;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 2rem;
+    }
+    .telegram-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0088cc;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+    .telegram-float img {
+      width: 32px;
+      height: 32px;
+    }
+    .telegram-float:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
- <header>
-  <h1>Alim Store</h1>
-  <a href="#produk" class="btn">BELI SEKARANG</a>
- </header>
+  <header>
+    <h1>Vinzz Store</h1>
+    <a href="#produk" class="btn">BELI SEKARANG</a>
+  </header>
 
- <div class="hero">
-  <img src="https://alimcloud.id/assets/img/hero.png" alt="Hero Background">
-  <div class="hero-text">
-   <h2>Layanan Produk Digital Terpercaya</h2>
-   <p>Kualitas Terbaik, Termurah, Order Otomatis, Best Seller</p>
-   <a class="btn" href="#produk">LIHAT PRODUK</a>
-  </div>
- </div>
-
- <section id="produk">
-  <!-- Produk Modern -->
-  <div class="product-card fade-in">
-   <img src="https://alimcloud.id/assets/img/digitalocean.jpg" alt="DigitalOcean">
-   <h3>DigitalOcean 10 Droplet VCC (DISKON)</h3>
-   <p class="price">Rp100.000</p>
-   <ul>
-    <li>✔️ 10 Droplet VCC</li>
-    <li>✔️ Free Voucher $200 (2 Bulan)</li>
-    <li>✔️ Full Akses, Siap Pakai</li>
-   </ul>
-   <div class="stock-control">
-    <button class="minus">−</button>
-    <span class="quantity">0</span>
-    <button class="plus">+</button>
-   </div>
+  <div class="hero">
+    <img src="https://alimcloud.id/assets/img/hero.png" alt="Hero Background">
+    <div class="hero-text">
+      <h2>Layanan Produk Digital Terpercaya</h2>
+      <p>Kualitas Terbaik, Termurah, Order Otomatis, Best Seller</p>
+      <a class="btn" href="#produk">LIHAT PRODUK</a>
+    </div>
   </div>
 
-  <!-- Produk Lama -->
-  <div class="card fade-in">
-   <h3>Panel Bot WhatsApp</h3>
-   <p>Paket panel hemat dan powerful untuk kebutuhan bot WA kamu.</p>
-  </div>
-  <div class="card fade-in">
-   <h3>Paket VPS Murah</h3>
-   <p>Server stabil dan cepat, cocok untuk aplikasi dan bot Telegram.</p>
-  </div>
-  <div class="card fade-in">
-   <h3>Hosting Otomatis</h3>
-   <p>Auto setup, langsung online dalam hitungan menit.</p>
-  </div>
-  <div class="card fade-in">
-   <h3>Akun DigitalOcean (DO)</h3>
-   <p>✔️ 3 Drop PayPal - <strong>Rp125.000</strong><br>
-    ✔️ 10 Drop PayPal - <strong>Rp150.000</strong></p>
-  </div>
- </section>
+  <section id="produk">
+    <!-- Produk 1 -->
+    <div class="product-card fade-in">
+      <img src="https://alimcloud.id/assets/img/digitalocean.jpg" alt="DigitalOcean">
+      <h3>DigitalOcean 10 Droplet VCC (DISKON)</h3>
+      <p class="price">Rp100.000</p>
+      <ul>
+        <li>✔️ 10 Droplet VCC</li>
+        <li>✔️ Free Voucher $200 (2 Bulan)</li>
+        <li>✔️ Full Akses, Siap Pakai</li>
+      </ul>
+      <div class="stock-control">
+        <button class="minus">−</button>
+        <span class="quantity">0</span>
+        <button class="plus">+</button>
+      </div>
+    </div>
 
- <section style="background: #f9fafc; color: #222; padding: 40px 20px;">
-  <h2 style="text-align: center; font-size: 24px; color: #1f3c88;">PERTANYAAN YANG SERING DITANYAKAN</h2>
-  <p style="text-align: center; margin-bottom: 20px;">Pertanyaan yang dapat membantu Anda?</p>
-  <div style="max-width: 700px; margin: 0 auto;">
-   <details>
-    <summary>Bagaimana cara membeli akun panel diwhatsapp Bot Otomatis AlimCloud?</summary>
-    <p>
-     - Untuk melihat jumlah stok disetiap panel ketik: <strong>#stok</strong><br />
-     - Jika ingin membeli salah satu panel (contoh panel AWS dengan kode: aws & jumlah 5) ketik: <strong>#buy aws 5</strong><br />
-     - Untuk mengetahui menu perintah yang ada pada bot whatsapp ketik: <strong>#menu</strong>
-    </p>
-   </details>
-   <details>
-    <summary>Bagaimana cara menggunakan 2FA atau MFA?</summary>
-    <p>
-     Silakan gunakan Google Authenticator atau Authy, dan aktifkan fitur 2FA di pengaturan akun Anda.
-    </p>
-   </details>
-  </div>
- </section>
+    <!-- Produk 2 -->
+    <div class="product-card fade-in">
+      <img src="https://alimcloud.id/assets/img/panel.jpg" alt="Panel WhatsApp">
+      <h3>Panel Bot WhatsApp</h3>
+      <p class="price">Rp50.000</p>
+      <ul>
+        <li>✔️ Unlimited Sender</li>
+        <li>✔️ Anti Banned</li>
+        <li>✔️ Full Fitur & Auto Setup</li>
+      </ul>
+      <div class="stock-control">
+        <button class="minus">−</button>
+        <span class="quantity">0</span>
+        <button class="plus">+</button>
+      </div>
+    </div>
 
- <footer>
-  <img src="logo.png" alt="Logo" style="height: 80px; margin-bottom: 20px;" />
-  <h3 style="color: #1f3c88;">KONTAK</h3>
-  <p>Jika ada yang ingin tanyakan bisa menghubungi admin dibawah:</p>
-  <p><strong>WhatsApp:</strong> 085753323094</p>
-  <p><strong>Facebook:</strong> @alimjayadarmawan</p>
-  <div style="margin: 20px 0;">
-   <a href="https://facebook.com/alimjayadarmawan" target="_blank" style="margin-right: 10px;">
-    <img src="facebook-icon.png" alt="FB" width="30" />
-   </a>
-   <a href="https://wa.me/6285753323094" target="_blank">
-    <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" alt="WA" width="30" />
-   </a>
-  </div>
-  <p>Copyright © 2019 - 2025 <strong>Alim Store</strong>. All rights reserved.</p>
- </footer>
+    <!-- Produk 3 -->
+    <div class="product-card fade-in">
+      <img src="https://alimcloud.id/assets/img/vps.jpg" alt="Paket VPS Murah">
+      <h3>Paket VPS Murah 1GB - 32GB</h3>
+      <p class="price">Rp35.000 - Rp250.000</p>
+      <ul>
+        <li>✔️ RAM 1GB - 32GB</li>
+        <li>✔️ Lokasi Singapura / US</li>
+        <li>✔️ UpTime 99.9%</li>
+      </ul>
+      <div class="stock-control">
+        <button class="minus">−</button>
+        <span class="quantity">0</span>
+        <button class="plus">+</button>
+      </div>
+    </div>
 
- <!-- WhatsApp Floating Button -->
- <a href="https://wa.me/6285753323094" target="_blank" class="wa-float" aria-label="Chat di WhatsApp">
-  <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" alt="WA">
- </a>
+    <!-- Produk 4 -->
+    <div class="product-card fade-in">
+      <img src="https://alimcloud.id/assets/img/hosting.jpg" alt="Hosting Otomatis">
+      <h3>Hosting Otomatis</h3>
+      <p class="price">Rp20.000</p>
+      <ul>
+        <li>✔️ Auto Setup</li>
+        <li>✔️ 10GB SSD Space</li>
+        <li>✔️ Free SSL</li>
+      </ul>
+      <div class="stock-control">
+        <button class="minus">−</button>
+        <span class="quantity">0</span>
+        <button class="plus">+</button>
+      </div>
+    </div>
+  </section>
 
- <!-- Scroll to Top -->
- <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+  <footer>
+    &copy; 2025 Vinzz Store. All rights reserved.
+  </footer>
 
- <script>
-  // Fade in
-  const faders = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries) => {
-   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-     entry.target.classList.add('show');
-    }
-   });
-  }, { threshold: 0.1 });
-  faders.forEach(el => observer.observe(el));
+  <a href="https://t.me/username_kamu" class="telegram-float" target="_blank" aria-label="Chat di Telegram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram Icon">
+  </a>
 
-  // Stock control
-  document.querySelectorAll('.product-card').forEach(card => {
-   const plus = card.querySelector('.plus')
-   const minus = card.querySelector('.minus')
-   const qty = card.querySelector('.quantit
-y')
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+    faders.forEach(el => observer.observe(el));
 
-   plus.addEventListener('click', () => {
-    qty.textContent = parseInt(qty.textContent) + 1
-   })
-   minus.addEventListener('click', () => {
-    if (parseInt(qty.textContent) > 0) {
-     qty.textContent = parseInt(qty.textContent) - 1
-    }
-   })
-  });
- </script>
+    document.querySelectorAll('.product-card').forEach(card => {
+      const plus = card.querySelector('.plus')
+      const minus = card.querySelector('.minus')
+      const qty = card.querySelector('.quantity')
+
+      plus.addEventListener('click', () => {
+        qty.textContent = parseInt(qty.textContent) + 1
+      })
+      minus.addEventListener('click', () => {
+        if (parseInt(qty.textContent) > 0) {
+          qty.textContent = parseInt(qty.textContent) - 1
+        }
+      })
+    })
+  </script>
 </body>
 </html>
