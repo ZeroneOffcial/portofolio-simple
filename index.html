@@ -90,6 +90,28 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+    .telegram-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #0088cc;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+    .telegram-float img {
+      width: 32px;
+      height: 32px;
+    }
+    .telegram-float:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -120,11 +142,21 @@
       <h3>Hosting Otomatis</h3>
       <p>Auto setup, langsung online dalam hitungan menit.</p>
     </div>
+    <div class="card fade-in">
+      <h3>Akun DigitalOcean (DO)</h3>
+      <p>✔️ 3 Drop PayPal - <strong>Rp125.000</strong><br>
+         ✔️ 10 Drop PayPal - <strong>Rp150.000</strong></p>
+    </div>
   </section>
 
   <footer>
     &copy; 2025 Alim Store. All rights reserved.
   </footer>
+
+  <!-- Floating Telegram Button -->
+  <a href="https://t.me/username_kamu" class="telegram-float" target="_blank" aria-label="Chat di Telegram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram Icon">
+  </a>
 
   <script>
     const faders = document.querySelectorAll('.fade-in');
@@ -139,4 +171,5 @@
     faders.forEach(el => observer.observe(el));
   </script>
 </body>
-</html>
+                                                                      </html>
+                                                                      
