@@ -6,7 +6,11 @@
  <title>Vinzz Store</title>
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
  <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+  }
   body {
    font-family: 'Inter', sans-serif;
    background-color: #1c2d57;
@@ -21,7 +25,9 @@
    padding: 1rem 2rem;
    background: #22376b;
   }
-  header h1 { font-size: 1.5rem; }
+  header h1 {
+   font-size: 1.5rem;
+  }
   .btn {
    background-color: #52c3f1;
    color: white;
@@ -53,6 +59,9 @@
    color: #ddd;
    font-size: 1rem;
    margin-bottom: 1.5rem;
+  }
+  .hero-text .btn {
+   background-color: #4da8da;
   }
   section {
    padding: 3rem 1rem;
@@ -128,14 +137,6 @@
    font-size: 1.2rem;
    min-width: 30px;
   }
-  .buy-button {
-   display: none;
-   margin-top: 15px;
-  }
-  .buy-button .btn {
-   background: #4da8da;
-   display: inline-block;
-  }
   footer {
    background: #fff;
    padding: 40px 20px;
@@ -143,6 +144,7 @@
    font-size: 14px;
    color: #333;
   }
+  .telegram-float,
   .wa-float {
    position: fixed;
    width: 60px;
@@ -158,10 +160,12 @@
    align-items: center;
    transition: transform 0.3s ease;
   }
+  .telegram-float img,
   .wa-float img {
    width: 32px;
    height: 32px;
   }
+  .telegram-float:hover,
   .wa-float:hover {
    transform: scale(1.1);
   }
@@ -179,11 +183,27 @@
    cursor: pointer;
    z-index: 999;
   }
+  details {
+   background: #eee;
+   color: #222;
+   padding: 1rem;
+   border-radius: 10px;
+   margin-bottom: 10px;
+  }
+  details summary {
+   cursor: pointer;
+   font-weight: bold;
+   font-size: 1rem;
+  }
+  details p {
+   margin-top: 10px;
+   font-size: 0.9rem;
+  }
  </style>
 </head>
 <body>
  <header>
-  <h1>Vinzz Store</h1>
+  <h1>Alim Store</h1>
   <a href="#produk" class="btn">BELI SEKARANG</a>
  </header>
 
@@ -197,6 +217,7 @@
  </div>
 
  <section id="produk">
+  <!-- Produk Modern -->
   <div class="product-card fade-in">
    <img src="https://alimcloud.id/assets/img/digitalocean.jpg" alt="DigitalOcean">
    <h3>DigitalOcean 10 Droplet VCC (DISKON)</h3>
@@ -211,16 +232,53 @@
     <span class="quantity">0</span>
     <button class="plus">+</button>
    </div>
-   <div class="buy-button">
-    <a href="https://wa.me/6285753323094?text=Halo%20saya%20mau%20beli%20produk%20DigitalOcean%2010%20Droplet%20VCC" class="btn" target="_blank">BELI SEKARANG</a>
-   </div>
+  </div>
+
+  <!-- Produk Lama -->
+  <div class="card fade-in">
+   <h3>Panel Bot WhatsApp</h3>
+   <p>Paket panel hemat dan powerful untuk kebutuhan bot WA kamu.</p>
+  </div>
+  <div class="card fade-in">
+   <h3>Paket VPS Murah</h3>
+   <p>Server stabil dan cepat, cocok untuk aplikasi dan bot Telegram.</p>
+  </div>
+  <div class="card fade-in">
+   <h3>Hosting Otomatis</h3>
+   <p>Auto setup, langsung online dalam hitungan menit.</p>
+  </div>
+  <div class="card fade-in">
+   <h3>Akun DigitalOcean (DO)</h3>
+   <p>✔️ 3 Drop PayPal - <strong>Rp125.000</strong><br>
+    ✔️ 10 Drop PayPal - <strong>Rp150.000</strong></p>
+  </div>
+ </section>
+
+ <section style="background: #f9fafc; color: #222; padding: 40px 20px;">
+  <h2 style="text-align: center; font-size: 24px; color: #1f3c88;">PERTANYAAN YANG SERING DITANYAKAN</h2>
+  <p style="text-align: center; margin-bottom: 20px;">Pertanyaan yang dapat membantu Anda?</p>
+  <div style="max-width: 700px; margin: 0 auto;">
+   <details>
+    <summary>Bagaimana cara membeli akun panel diwhatsapp Bot Otomatis AlimCloud?</summary>
+    <p>
+     - Untuk melihat jumlah stok disetiap panel ketik: <strong>#stok</strong><br />
+     - Jika ingin membeli salah satu panel (contoh panel AWS dengan kode: aws & jumlah 5) ketik: <strong>#buy aws 5</strong><br />
+     - Untuk mengetahui menu perintah yang ada pada bot whatsapp ketik: <strong>#menu</strong>
+    </p>
+   </details>
+   <details>
+    <summary>Bagaimana cara menggunakan 2FA atau MFA?</summary>
+    <p>
+     Silakan gunakan Google Authenticator atau Authy, dan aktifkan fitur 2FA di pengaturan akun Anda.
+    </p>
+   </details>
   </div>
  </section>
 
  <footer>
   <img src="logo.png" alt="Logo" style="height: 80px; margin-bottom: 20px;" />
   <h3 style="color: #1f3c88;">KONTAK</h3>
-  <p>Jika ada yang ingin ditanyakan bisa menghubungi admin dibawah:</p>
+  <p>Jika ada yang ingin tanyakan bisa menghubungi admin dibawah:</p>
   <p><strong>WhatsApp:</strong> 085753323094</p>
   <p><strong>Facebook:</strong> @alimjayadarmawan</p>
   <div style="margin: 20px 0;">
@@ -231,7 +289,7 @@
     <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" alt="WA" width="30" />
    </a>
   </div>
-  <p>© 2025 <strong>Vinzz Store</strong>. All rights reserved.</p>
+  <p>Copyright © 2019 - 2025 <strong>Alim Store</strong>. All rights reserved.</p>
  </footer>
 
  <!-- WhatsApp Floating Button -->
@@ -243,7 +301,7 @@
  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
  <script>
-  // Fade in saat scroll
+  // Fade in
   const faders = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
    entries.forEach(entry => {
@@ -254,31 +312,21 @@
   }, { threshold: 0.1 });
   faders.forEach(el => observer.observe(el));
 
-  // Fungsi + dan - serta tombol BELI muncul dinamis
+  // Stock control
   document.querySelectorAll('.product-card').forEach(card => {
-   const plus = card.querySelector('.plus');
-   const minus = card.querySelector('.minus');
-   const qty = card.querySelector('.quantity');
-   const buyBtn = card.querySelector('.buy-button');
-
-   const updateBtn = () => {
-    if (parseInt(qty.textContent) > 0) {
-     buyBtn.style.display = 'block';
-    } else {
-     buyBtn.style.display = 'none';
-    }
-   }
+   const plus = card.querySelector('.plus')
+   const minus = card.querySelector('.minus')
+   const qty = card.querySelector('.quantit
+y')
 
    plus.addEventListener('click', () => {
-    qty.textContent = parseInt(qty.textContent) + 1;
-    updateBtn();
-   });
+    qty.textContent = parseInt(qty.textContent) + 1
+   })
    minus.addEventListener('click', () => {
     if (parseInt(qty.textContent) > 0) {
-     qty.textContent = parseInt(qty.textContent) - 1;
-     updateBtn();
+     qty.textContent = parseInt(qty.textContent) - 1
     }
-   });
+   })
   });
  </script>
 </body>
