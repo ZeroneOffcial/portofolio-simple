@@ -83,6 +83,60 @@
       border-radius: 1rem;
       margin-bottom: 2rem;
     }
+    .product-card {
+      background: #fff;
+      color: #222;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #1c2d57;
+    }
+    .product-card .price {
+      font-size: 1.4rem;
+      color: #0af;
+      margin: 10px 0;
+    }
+    .product-card ul {
+      text-align: left;
+      margin: 10px auto;
+      padding-left: 20px;
+    }
+    .product-card ul li {
+      margin-bottom: 6px;
+    }
+    .stock-control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .stock-control button {
+      background: #0af;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+    }
+    .quantity {
+      font-size: 1.2rem;
+      min-width: 30px;
+    }
     footer {
       background: #fff;
       padding: 40px 20px;
@@ -163,6 +217,24 @@
   </div>
 
   <section id="produk">
+    <!-- Produk Modern -->
+    <div class="product-card fade-in">
+      <img src="https://alimcloud.id/assets/img/digitalocean.jpg" alt="DigitalOcean">
+      <h3>DigitalOcean 10 Droplet VCC (DISKON)</h3>
+      <p class="price">Rp100.000</p>
+      <ul>
+        <li>✔️ 10 Droplet VCC</li>
+        <li>✔️ Free Voucher $200 (2 Bulan)</li>
+        <li>✔️ Full Akses, Siap Pakai</li>
+      </ul>
+      <div class="stock-control">
+        <button class="minus">−</button>
+        <span class="quantity">0</span>
+        <button class="plus">+</button>
+      </div>
+    </div>
+
+    <!-- Produk Lama -->
     <div class="card fade-in">
       <h3>Panel Bot WhatsApp</h3>
       <p>Paket panel hemat dan powerful untuk kebutuhan bot WA kamu.</p>
@@ -209,7 +281,6 @@
     <p>Jika ada yang ingin tanyakan bisa menghubungi admin dibawah:</p>
     <p><strong>WhatsApp:</strong> 085753323094</p>
     <p><strong>Facebook:</strong> @alimjayadarmawan</p>
-
     <div style="margin: 20px 0;">
       <a href="https://facebook.com/alimjayadarmawan" target="_blank" style="margin-right: 10px;">
         <img src="facebook-icon.png" alt="FB" width="30" />
@@ -218,7 +289,6 @@
         <img src="https://img.icons8.com/color/96/000000/whatsapp--v1.png" alt="WA" width="30" />
       </a>
     </div>
-
     <p>Copyright © 2019 - 2025 <strong>Alim Store</strong>. All rights reserved.</p>
   </footer>
 
@@ -231,6 +301,7 @@
   <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
 
   <script>
+    // Fade in
     const faders = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -239,8 +310,23 @@
         }
       });
     }, { threshold: 0.1 });
-
     faders.forEach(el => observer.observe(el));
+
+    // Stock control
+    document.querySelectorAll('.product-card').forEach(card => {
+      const plus = card.querySelector('.plus')
+      const minus = card.querySelector('.minus')
+      const qty = card.querySelector('.quantity')
+
+      plus.addEventListener('click', () => {
+        qty.textContent = parseInt(qty.textContent) + 1
+      })
+      minus.addEventListener('click', () => {
+        if (parseInt(qty.textContent) > 0) {
+          qty.textContent = parseInt(qty.textContent) - 1
+        }
+      })
+    });
   </script>
 </body>
 </html>
