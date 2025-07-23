@@ -6,7 +6,83 @@
   <title>Vinzz Store</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    /* ... [gaya sama seperti yang kamu kirim sebelumnya, TIDAK diubah] ... */
+  * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+  }
+  body {
+   font-family: 'Inter', sans-serif;
+   background-color: #1c2d57;
+   color: white;
+   line-height: 1.6;
+   overflow-x: hidden;
+  }
+  header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem 2rem;
+   background: #22376b;
+  }
+  header h1 {
+   font-size: 1.5rem;
+  }
+  .btn {
+   background-color: #52c3f1;
+   color: white;
+   padding: 0.5rem 1.2rem;
+   border-radius: 30px;
+   font-weight: 600;
+   text-decoration: none;
+  }
+  .hero {
+   text-align: center;
+   padding: 0;
+   background: #22376b;
+  }
+  .hero img {
+   width: 100%;
+   max-width: 100%;
+   display: block;
+   margin: 0 auto;
+  }
+  .hero-text {
+   padding: 2rem 1rem 3rem;
+  }
+  .hero-text h2 {
+   font-size: 1.8rem;
+   margin-top: 1.5rem;
+   margin-bottom: 0.5rem;
+  }
+  .hero-text p {
+   color: #ddd;
+   font-size: 1rem;
+   margin-bottom: 1.5rem;
+  }
+  .hero-text .btn {
+   background-color: #4da8da;
+  }
+  section {
+   padding: 3rem 1rem;
+   max-width: 900px;
+   margin: 0 auto;
+  }
+  .fade-in {
+   opacity: 0;
+   transform: translateY(30px);
+   transition: all 0.8s ease-in-out;
+  }
+  .fade-in.show {
+   opacity: 1;
+   transform: translateY(0);
+  }
+  .card {
+   background: #2e4a7d;
+   padding: 1.5rem;
+   border-radius: 1rem;
+   margin-bottom: 2rem;
+  }
     .product-card {
       background: #fff;
       color: #222;
@@ -61,11 +137,85 @@
       font-size: 1.2rem;
       min-width: 30px;
     }
+      footer {
+   background: #fff;
+   padding: 40px 20px;
+   text-align: center;
+   font-size: 14px;
+   color: #333;
+  }
+  .telegram-float,
+  .wa-float {
+   position: fixed;
+   width: 60px;
+   height: 60px;
+   bottom: 80px;
+   right: 20px;
+   background-color: #25d366;
+   border-radius: 50%;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+   z-index: 1000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transition: transform 0.3s ease;
+  }
+  .telegram-float img,
+  .wa-float img {
+   width: 32px;
+   height: 32px;
+  }
+  .telegram-float:hover,
+  .wa-float:hover {
+   transform: scale(1.1);
+  }
+  .scroll-top {
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   background: #29b6f6;
+   border: none;
+   border-radius: 50%;
+   width: 50px;
+   height: 50px;
+   color: white;
+   font-size: 24px;
+   cursor: pointer;
+   z-index: 999;
+  }
+  details {
+   background: #eee;
+   color: #222;
+   padding: 1rem;
+   border-radius: 10px;
+   margin-bottom: 10px;
+  }
+  details summary {
+   cursor: pointer;
+   font-weight: bold;
+   font-size: 1rem;
+  }
+  details p {
+   margin-top: 10px;
+   font-size: 0.9rem;
+  }
   </style>
 </head>
 <body>
 
-  <!-- ... header dan hero tetap ... -->
+  <h1>Alim Store</h1>
+  <a href="#produk" class="btn">BELI SEKARANG</a>
+ </header>
+
+ <div class="hero">
+  <img src="https://alimcloud.id/assets/img/hero.png" alt="Hero Background">
+  <div class="hero-text">
+   <h2>Layanan Produk Digital Terpercaya</h2>
+   <p>Kualitas Terbaik, Termurah, Order Otomatis, Best Seller</p>
+   <a class="btn" href="#produk">LIHAT PRODUK</a>
+  </div>
+ </div>
+
 
   <section id="produk">
     <!-- Produk Interaktif -->
