@@ -8,9 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
       font-family: 'Inter', sans-serif;
@@ -20,67 +18,48 @@
       overflow-x: hidden;
     }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: #22376b;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2rem; background: #22376b;
     }
     header h1 {
       font-size: 1.5rem;
     }
     .btn {
-      background-color: #52c3f1;
-      color: white;
-      padding: 0.5rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
+      background-color: #52c3f1; color: white;
+      padding: 0.5rem 1.2rem; border-radius: 30px;
+      font-weight: 600; text-decoration: none;
     }
     .hero {
-      text-align: center;
-      padding: 0;
-      background: #22376b;
+      text-align: center; padding: 0; background: #22376b;
     }
     .hero img {
-      width: 100%;
-      max-width: 100%;
-      display: block;
-      margin: 0 auto;
+      width: 100%; max-width: 100%;
+      display: block; margin: 0 auto;
     }
     .hero-text {
       padding: 2rem 1rem 3rem;
     }
     .hero-text h2 {
-      font-size: 1.8rem;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.8rem; margin-top: 1.5rem; margin-bottom: 0.5rem;
     }
     .hero-text p {
-      color: #ddd;
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
+      color: #ddd; font-size: 1rem; margin-bottom: 1.5rem;
     }
     .hero-text .btn {
       background-color: #4da8da;
     }
     section {
       padding: 3rem 1rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
+      max-width: 1000px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 2rem;
       justify-content: center;
     }
     .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
+      opacity: 0; transform: translateY(30px);
       transition: all 0.8s ease-in-out;
     }
     .fade-in.show {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1; transform: translateY(0);
     }
     .product-card {
       background: #2e4a7d;
@@ -108,31 +87,39 @@
       margin-bottom: 0.5rem;
     }
     .product-card ul {
-      list-style: none;
-      padding-left: 0;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
+      list-style: none; padding-left: 0;
+      font-size: 0.9rem; margin-bottom: 1rem;
     }
     .product-card ul li {
       margin-bottom: 0.3rem;
     }
     .stock-control {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1rem;
     }
     .stock-control button {
-      background: #52c3f1;
-      border: none;
-      color: white;
-      font-size: 1.2rem;
+      background: #52c3f1; border: none;
+      color: white; font-size: 1.2rem;
       padding: 0.3rem 0.8rem;
-      border-radius: 5px;
-      cursor: pointer;
+      border-radius: 5px; cursor: pointer;
     }
     .stock-control .quantity {
       font-size: 1rem;
       font-weight: bold;
+    }
+    .buy-btn {
+      background-color: #00c776;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+      transition: all 0.3s ease;
+    }
+    .buy-btn.show {
+      display: inline-block;
     }
     footer {
       background: #172647;
@@ -144,10 +131,8 @@
     }
     .telegram-float {
       position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 20px;
+      width: 60px; height: 60px;
+      bottom: 20px; right: 20px;
       background-color: #0088cc;
       border-radius: 50%;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -158,8 +143,7 @@
       transition: transform 0.3s ease;
     }
     .telegram-float img {
-      width: 32px;
-      height: 32px;
+      width: 32px; height: 32px;
     }
     .telegram-float:hover {
       transform: scale(1.1);
@@ -182,7 +166,7 @@
   </div>
 
   <section id="produk">
-    <!-- Produk 1 -->
+    <!-- Produk -->
     <div class="product-card fade-in">
       <img src="https://alimcloud.id/assets/img/digitalocean.jpg" alt="DigitalOcean">
       <h3>DigitalOcean 10 Droplet VCC (DISKON)</h3>
@@ -197,9 +181,9 @@
         <span class="quantity">0</span>
         <button class="plus">+</button>
       </div>
+      <button class="buy-btn" onclick="window.open('https://saweria.co/qr/Zerroneoffc', '_blank')">BELI SEKARANG</button>
     </div>
 
-    <!-- Produk 2 -->
     <div class="product-card fade-in">
       <img src="https://alimcloud.id/assets/img/panel.jpg" alt="Panel WhatsApp">
       <h3>Panel Bot WhatsApp</h3>
@@ -214,9 +198,9 @@
         <span class="quantity">0</span>
         <button class="plus">+</button>
       </div>
+      <button class="buy-btn" onclick="window.open('https://saweria.co/qr/Zerroneoffc', '_blank')">BELI SEKARANG</button>
     </div>
 
-    <!-- Produk 3 -->
     <div class="product-card fade-in">
       <img src="https://alimcloud.id/assets/img/vps.jpg" alt="Paket VPS Murah">
       <h3>Paket VPS Murah 1GB - 32GB</h3>
@@ -231,9 +215,9 @@
         <span class="quantity">0</span>
         <button class="plus">+</button>
       </div>
+      <button class="buy-btn" onclick="window.open('https://saweria.co/qr/Zerroneoffc', '_blank')">BELI SEKARANG</button>
     </div>
 
-    <!-- Produk 4 -->
     <div class="product-card fade-in">
       <img src="https://alimcloud.id/assets/img/hosting.jpg" alt="Hosting Otomatis">
       <h3>Hosting Otomatis</h3>
@@ -248,6 +232,7 @@
         <span class="quantity">0</span>
         <button class="plus">+</button>
       </div>
+      <button class="buy-btn" onclick="window.open('https://saweria.co/qr/Zerroneoffc', '_blank')">BELI SEKARANG</button>
     </div>
   </section>
 
@@ -274,13 +259,19 @@
       const plus = card.querySelector('.plus')
       const minus = card.querySelector('.minus')
       const qty = card.querySelector('.quantity')
+      const buyBtn = card.querySelector('.buy-btn')
 
       plus.addEventListener('click', () => {
-        qty.textContent = parseInt(qty.textContent) + 1
+        let q = parseInt(qty.textContent)
+        qty.textContent = q + 1
+        if (q + 1 > 0) buyBtn.classList.add('show')
       })
+
       minus.addEventListener('click', () => {
-        if (parseInt(qty.textContent) > 0) {
-          qty.textContent = parseInt(qty.textContent) - 1
+        let q = parseInt(qty.textContent)
+        if (q > 0) {
+          qty.textContent = q - 1
+          if (q - 1 === 0) buyBtn.classList.remove('show')
         }
       })
     })
