@@ -8,273 +8,150 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
     }
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #1c2d57;
-      color: white;
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: #0f0f0f;
+      color: #fff;
+      padding: 20px;
     }
-    header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 2rem; background: #22376b;
-    }
-    header h1 {
-      font-size: 1.5rem;
-    }
-    .btn {
-      background-color: #52c3f1; color: white;
-      padding: 0.5rem 1.2rem; border-radius: 30px;
-      font-weight: 600; text-decoration: none;
-    }
-    .hero {
-      text-align: center; padding: 0; background: #22376b;
-    }
-    .hero img {
-      width: 100%; max-width: 100%;
-      display: block; margin: 0 auto;
-    }
-    .hero-text {
-      padding: 2rem 1rem 3rem;
-    }
-    .hero-text h2 {
-      font-size: 1.8rem; margin-top: 1.5rem; margin-bottom: 0.5rem;
-    }
-    .hero-text p {
-      color: #ddd; font-size: 1rem; margin-bottom: 1.5rem;
-    }
-    .hero-text .btn {
-      background-color: #4da8da;
-    }
-    section {
-      padding: 3rem 1rem;
-      max-width: 1000px; margin: 0 auto;
-      display: flex; flex-wrap: wrap; gap: 2rem;
-      justify-content: center;
-    }
-    .fade-in {
-      opacity: 0; transform: translateY(30px);
-      transition: all 0.8s ease-in-out;
-    }
-    .fade-in.show {
-      opacity: 1; transform: translateY(0);
-    }
-    .product-card {
-      background: #2e4a7d;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      width: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
-    .product-card img {
-      width: 100%;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .product-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+    h1 {
       text-align: center;
+      margin-bottom: 30px;
     }
-    .product-card .price {
-      color: #ffd700;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
     }
-    .product-card ul {
-      list-style: none; padding-left: 0;
-      font-size: 0.9rem; margin-bottom: 1rem;
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease;
+      position: relative;
     }
-    .product-card ul li {
-      margin-bottom: 0.3rem;
+    .card:hover {
+      transform: translateY(-5px);
     }
-    .stock-control {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 1rem;
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
     }
-    .stock-control button {
-      background: #52c3f1; border: none;
-      color: white; font-size: 1.2rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 5px; cursor: pointer;
+    .counter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #2a2a2a;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 10px;
     }
-    .stock-control .quantity {
-      font-size: 1rem;
-      font-weight: bold;
+    .counter button {
+      flex: 1;
+      padding: 10px;
+      background: #3a3a3a;
+      border: none;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .counter span {
+      flex: 2;
+      text-align: center;
+      font-size: 16px;
     }
     .buy-btn {
-      background-color: #00c776;
-      color: white;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
       display: none;
-      transition: all 0.3s ease;
+      margin-top: 10px;
+      background: #00c853;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
     }
-    .buy-btn.show {
-      display: inline-block;
-    }
-    footer {
-      background: #172647;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-      margin-top: 2rem;
-    }
-    .telegram-float {
-      position: fixed;
-      width: 60px; height: 60px;
-      bottom: 20px; right: 20px;
-      background-color: #0088cc;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.3s ease;
-    }
-    .telegram-float img {
-      width: 32px; height: 32px;
-    }
-    .telegram-float:hover {
-      transform: scale(1.1);
+    .card.show-buy .buy-btn {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Vinzz Store</h1>
-    <a href="#produk" class="btn">BELI SEKARANG</a>
-  </header>
+  <h1>Vinzz Store</h1>
+  <div class="product-grid">
+    <!-- Produk 1 -->
+    <div class="card">
+      <h2>DigitalOcean 10 Droplet VCC (DISKON)</h2>
+      <div class="counter">
+        <button onclick="decrease(this)">-</button>
+        <span>0</span>
+        <button onclick="increase(this)">+</button>
+      </div>
+      <button class="buy-btn" onclick="window.open('https://saweria.co/qris/snap/Zerroneoffc', '_blank')">BELI SEKARANG</button>
+    </div>
 
-  <div class="hero">
-    <img src="https://alimcloud.id/assets/img/hero.png" alt="Hero Background">
-    <div class="hero-text">
-      <h2>Layanan Produk Digital Terpercaya</h2>
-      <p>Kualitas Terbaik, Termurah, Order Otomatis, Best Seller</p>
-      <a class="btn" href="#produk">LIHAT PRODUK</a>
+    <!-- Produk 2 -->
+    <div class="card">
+      <h2>Panel 1GB Ram - Premium</h2>
+      <div class="counter">
+        <button onclick="decrease(this)">-</button>
+        <span>0</span>
+        <button onclick="increase(this)">+</button>
+      </div>
+      <button class="buy-btn" onclick="window.open('https://saweria.co/qris/snap/Zerroneoffc', '_blank')">BELI SEKARANG</button>
+    </div>
+
+    <!-- Produk 3 -->
+    <div class="card">
+      <h2>Reseller Panel Unlimited</h2>
+      <div class="counter">
+        <button onclick="decrease(this)">-</button>
+        <span>0</span>
+        <button onclick="increase(this)">+</button>
+      </div>
+      <button class="buy-btn" onclick="window.open('https://saweria.co/qris/snap/Zerroneoffc', '_blank')">BELI SEKARANG</button>
+    </div>
+
+    <!-- Produk 4 -->
+    <div class="card">
+      <h2>VPS 2GB Ram - Promo</h2>
+      <div class="counter">
+        <button onclick="decrease(this)">-</button>
+        <span>0</span>
+        <button onclick="increase(this)">+</button>
+      </div>
+      <button class="buy-btn" onclick="window.open('https://saweria.co/qris/snap/Zerroneoffc', '_blank')">BELI SEKARANG</button>
     </div>
   </div>
 
-  <section id="produk">
-    <!-- Produk -->
-    <div class="product-card fade-in">
-      <img src="https://alimcloud.id/assets/img/digitalocean.jpg" alt="DigitalOcean">
-      <h3>DigitalOcean 10 Droplet VCC (DISKON)</h3>
-      <p class="price">Rp100.000</p>
-      <ul>
-        <li>✔️ 10 Droplet VCC</li>
-        <li>✔️ Free Voucher $200 (2 Bulan)</li>
-        <li>✔️ Full Akses, Siap Pakai</li>
-      </ul>
-      <div class="stock-control">
-        <button class="minus">−</button>
-        <span class="quantity">0</span>
-        <button class="plus">+</button>
-      </div>
-      <button class="buy-btn" onclick="window.open('https://saweria.co/qr/Zerroneoffc', '_blank')">BELI SEKARANG</button>
-    </div>
-
-    <div class="product-card fade-in">
-      <img src="https://alimcloud.id/assets/img/panel.jpg" alt="Panel WhatsApp">
-      <h3>Panel Bot WhatsApp</h3>
-      <p class="price">Rp50.000</p>
-      <ul>
-        <li>✔️ Unlimited Sender</li>
-        <li>✔️ Anti Banned</li>
-        <li>✔️ Full Fitur & Auto Setup</li>
-      </ul>
-      <div class="stock-control">
-        <button class="minus">−</button>
-        <span class="quantity">0</span>
-        <button class="plus">+</button>
-      </div>
-      <button class="buy-btn" onclick="window.open('https://saweria.co/qr/Zerroneoffc', '_blank')">BELI SEKARANG</button>
-    </div>
-
-    <div class="product-card fade-in">
-      <img src="https://alimcloud.id/assets/img/vps.jpg" alt="Paket VPS Murah">
-      <h3>Paket VPS Murah 1GB - 32GB</h3>
-      <p class="price">Rp35.000 - Rp250.000</p>
-      <ul>
-        <li>✔️ RAM 1GB - 32GB</li>
-        <li>✔️ Lokasi Singapura / US</li>
-        <li>✔️ UpTime 99.9%</li>
-      </ul>
-      <div class="stock-control">
-        <button class="minus">−</button>
-        <span class="quantity">0</span>
-        <button class="plus">+</button>
-      </div>
-      <button class="buy-btn" onclick="window.open('https://saweria.co/qr/Zerroneoffc', '_blank')">BELI SEKARANG</button>
-    </div>
-
-    <div class="product-card fade-in">
-      <img src="https://alimcloud.id/assets/img/hosting.jpg" alt="Hosting Otomatis">
-      <h3>Hosting Otomatis</h3>
-      <p class="price">Rp20.000</p>
-      <ul>
-        <li>✔️ Auto Setup</li>
-        <li>✔️ 10GB SSD Space</li>
-        <li>✔️ Free SSL</li>
-      </ul>
-      <div class="stock-control">
-        <button class="minus">−</button>
-        <span class="quantity">0</span>
-        <button class="plus">+</button>
-      </div>
-      <button class="buy-btn" onclick="window.open('https://saweria.co/qr/Zerroneoffc', '_blank')">BELI SEKARANG</button>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 Vinzz Store. All rights reserved.
-  </footer>
-
-  <a href="https://t.me/username_kamu" class="telegram-float" target="_blank" aria-label="Chat di Telegram">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram Icon">
-  </a>
-
   <script>
-    const faders = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-    faders.forEach(el => observer.observe(el));
+    function increase(btn) {
+      const card = btn.closest('.card');
+      const span = card.querySelector('span');
+      let count = parseInt(span.textContent);
+      count++;
+      span.textContent = count;
+      if (count > 0) {
+        card.classList.add('show-buy');
+      }
+    }
 
-    document.querySelectorAll('.product-card').forEach(card => {
-      const plus = card.querySelector('.plus')
-      const minus = card.querySelector('.minus')
-      const qty = card.querySelector('.quantity')
-      const buyBtn = card.querySelector('.buy-btn')
-
-      plus.addEventListener('click', () => {
-        let q = parseInt(qty.textContent)
-        qty.textContent = q + 1
-        if (q + 1 > 0) buyBtn.classList.add('show')
-      })
-
-      minus.addEventListener('click', () => {
-        let q = parseInt(qty.textContent)
-        if (q > 0) {
-          qty.textContent = q - 1
-          if (q - 1 === 0) buyBtn.classList.remove('show')
-        }
-      })
-    })
+    function decrease(btn) {
+      const card = btn.closest('.card');
+      const span = card.querySelector('span');
+      let count = parseInt(span.textContent);
+      count = Math.max(0, count - 1);
+      span.textContent = count;
+      if (count === 0) {
+        card.classList.remove('show-buy');
+      }
+    }
   </script>
 </body>
 </html>
