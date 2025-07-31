@@ -1,238 +1,63 @@
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zerone Official - Payment Manual</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-    body {
-      background-color: #0f172a;
-      color: #f1f5f9;
-      overflow-x: hidden;
-    }
 
-    #loading {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #0f172a;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
 
-    #loading span {
-      font-size: 1.2rem;
-      color: #38bdf8;
-      animation: blink 1s infinite;
-    }
 
-    @keyframes blink {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
-    }
+    
+    
+    Zerone Official - Pembayaran Digital
+    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .cta {
+            background: #28a745;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    
 
-    header {
-      background-color: #1e293b;
-      text-align: center;
-      padding: 40px 20px 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
 
-    header h1 { font-size: 2.2rem; color: #38bdf8; }
-    header p { color: #94a3b8; margin-top: 10px; }
+    
+        Zerone Official
+        Pembayaran Digital Mudah dan Aman
+    
+    
+        Selamat Datang di Zerone Official
+        Kami menyediakan solusi pembayaran digital yang cepat dan efisien untuk kebutuhan Anda.
+        
+            Mulai Pembayaran Sekarang!
+            Klik di sini
+        
+    
+    
+        © 2023 Zerone Official. Semua Hak Dilindungi.
+    
 
-    .container {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .card {
-      background-color: #1e293b;
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-    }
-
-    .payment-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .payment-card img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-
-    .payment-card h3 {
-      font-size: 1.2rem;
-      color: #f8fafc;
-      margin-bottom: 10px;
-    }
-
-    .btn {
-      background-color: #38bdf8;
-      color: #0f172a;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      margin-top: 10px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #0ea5e9;
-    }
-
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0,0,0,0.7);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    .modal-content {
-      background-color: #1e293b;
-      padding: 30px 20px;
-      border-radius: 16px;
-      max-width: 90%;
-      text-align: center;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal-content img {
-      max-width: 200px;
-      margin: 15px 0;
-      border-radius: 10px;
-    }
-
-    .modal-content p {
-      margin-bottom: 10px;
-      color: #f1f5f9;
-    }
-
-    .close {
-      background-color: transparent;
-      border: 2px solid #38bdf8;
-      color: #38bdf8;
-      border-radius: 8px;
-      padding: 5px 15px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #64748b;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body onload="hideLoader()">
-
-  <div id="loading">
-    <span>Memuat halaman...</span>
-  </div>
-
-  <header>
-    <h1>Zerone Official</h1>
-    <p>Pembayaran Manual - Aman & Terpercaya</p>
-  </header>
-
-  <div class="container">
-
-    <div class="card payment-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Bank_Central_Asia_logo.svg" alt="BCA">
-      <h3>Bank BCA</h3>
-      <button class="btn" onclick="openModal('modalBCA')">Lihat Detail</button>
-    </div>
-
-    <div class="card payment-card">
-      <img src="https://i.ibb.co/QNG9RbR/qris-logo.png" alt="QRIS">
-      <h3>QRIS (E-Wallet)</h3>
-      <button class="btn" onclick="openModal('modalQRIS')">Lihat QR</button>
-    </div>
-
-    <div class="card payment-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Dana_logo.png" alt="Ewallet">
-      <h3>DANA / OVO / GOPAY</h3>
-      <button class="btn" onclick="openModal('modalEwallet')">Lihat Detail</button>
-    </div>
-
-  </div>
-
-  <footer>
-    &copy; 2025 Zerone Official. All rights reserved.
-  </footer>
-
-  <!-- MODALS -->
-  <div class="modal" id="modalBCA">
-    <div class="modal-content">
-      <p>Rekening: <strong>1234567890</strong><br>a.n Zerone Store</p>
-      <a href="https://t.me/zeroneadmin" target="_blank" class="btn">Konfirmasi Telegram</a><br>
-      <button class="close" onclick="closeModal('modalBCA')">Tutup</button>
-    </div>
-  </div>
-
-  <div class="modal" id="modalQRIS">
-    <div class="modal-content">
-      <p>Scan QR dengan Dana / OVO / ShopeePay</p>
-      <img src="https://i.ibb.co/kQSZTY0/qris-sample.png" alt="QRIS QR">
-      <a href="https://t.me/zeroneadmin" target="_blank" class="btn">Konfirmasi Telegram</a><br>
-      <button class="close" onclick="closeModal('modalQRIS')">Tutup</button>
-    </div>
-  </div>
-
-  <div class="modal" id="modalEwallet">
-    <div class="modal-content">
-      <p>No. HP: <strong>0812-3456-7890</strong><br>a.n Zerone Store</p>
-      <a href="https://wa.me/6281234567890" target="_blank" class="btn">Konfirmasi WhatsApp</a><br>
-      <button class="close" onclick="closeModal('modalEwallet')">Tutup</button>
-    </div>
-  </div>
-
-  <script>
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    function hideLoader() {
-      document.getElementById('loading').style.display = 'none';
-    }
-  </script>
-</body>
-</html>
