@@ -12,6 +12,30 @@
     body {
       background-color: #0f172a;
       color: #f1f5f9;
+      overflow-x: hidden;
+    }
+
+    #loading {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #0f172a;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #loading span {
+      font-size: 1.2rem;
+      color: #38bdf8;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
     }
 
     header {
@@ -79,18 +103,50 @@
       background-color: #0ea5e9;
     }
 
-    .detail {
-      margin-top: 15px;
-      background-color: #334155;
-      padding: 15px;
-      border-radius: 10px;
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.7);
       display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background-color: #1e293b;
+      padding: 30px 20px;
+      border-radius: 16px;
+      max-width: 90%;
+      text-align: center;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-content img {
+      max-width: 200px;
+      margin: 15px 0;
+      border-radius: 10px;
+    }
+
+    .modal-content p {
+      margin-bottom: 10px;
       color: #f1f5f9;
     }
 
-    .detail img {
-      max-width: 100%;
-      border-radius: 12px;
+    .close {
+      background-color: transparent;
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+      border-radius: 8px;
+      padding: 5px 15px;
+      cursor: pointer;
       margin-top: 10px;
     }
 
@@ -102,53 +158,80 @@
     }
   </style>
 </head>
-<body>
+<body onload="hideLoader()">
+
+  <div id="loading">
+    <span>Memuat halaman...</span>
+  </div>
+
   <header>
     <h1>Zerone Official</h1>
     <p>Pembayaran Manual - Aman & Terpercaya</p>
   </header>
 
   <div class="container">
+
     <div class="card payment-card">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Bank_Central_Asia_logo.svg" alt="BCA">
       <h3>Bank BCA</h3>
-      <button class="btn" onclick="toggleDetail('bca')">Lihat Detail</button>
-      <div class="detail" id="bca">
-        <p>Rek: 1234567890<br>a.n Zerone Store</p>
-        <a href="https://t.me/zeroneadmin" class="btn" target="_blank">Konfirmasi via Telegram</a>
-      </div>
+      <button class="btn" onclick="openModal('modalBCA')">Lihat Detail</button>
     </div>
 
     <div class="card payment-card">
       <img src="https://i.ibb.co/QNG9RbR/qris-logo.png" alt="QRIS">
       <h3>QRIS (E-Wallet)</h3>
-      <button class="btn" onclick="toggleDetail('qris')">Lihat QR</button>
-      <div class="detail" id="qris">
-        <p>Scan menggunakan Dana, OVO, ShopeePay, dll</p>
-        <img src="https://i.ibb.co/kQSZTY0/qris-sample.png" alt="QRIS">
-        <a href="https://t.me/zeroneadmin" class="btn" target="_blank">Konfirmasi QR</a>
-      </div>
+      <button class="btn" onclick="openModal('modalQRIS')">Lihat QR</button>
     </div>
 
     <div class="card payment-card">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Dana_logo.png" alt="DANA">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Dana_logo.png" alt="Ewallet">
       <h3>DANA / OVO / GOPAY</h3>
-      <button class="btn" onclick="toggleDetail('ewallet')">Lihat Detail</button>
-      <div class="detail" id="ewallet">
-        <p>0812-3456-7890<br>a.n Zerone Store</p>
-        <a href="https://wa.me/6281234567890" class="btn" target="_blank">Konfirmasi WhatsApp</a>
-      </div>
+      <button class="btn" onclick="openModal('modalEwallet')">Lihat Detail</button>
     </div>
+
   </div>
 
   <footer>
     &copy; 2025 Zerone Official. All rights reserved.
   </footer>
 
+  <!-- MODALS -->
+  <div class="modal" id="modalBCA">
+    <div class="modal-content">
+      <p>Rekening: <strong>1234567890</strong><br>a.n Zerone Store</p>
+      <a href="https://t.me/zeroneadmin" target="_blank" class="btn">Konfirmasi Telegram</a><br>
+      <button class="close" onclick="closeModal('modalBCA')">Tutup</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modalQRIS">
+    <div class="modal-content">
+      <p>Scan QR dengan Dana / OVO / ShopeePay</p>
+      <img src="https://i.ibb.co/kQSZTY0/qris-sample.png" alt="QRIS QR">
+      <a href="https://t.me/zeroneadmin" target="_blank" class="btn">Konfirmasi Telegram</a><br>
+      <button class="close" onclick="closeModal('modalQRIS')">Tutup</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modalEwallet">
+    <div class="modal-content">
+      <p>No. HP: <strong>0812-3456-7890</strong><br>a.n Zerone Store</p>
+      <a href="https://wa.me/6281234567890" target="_blank" class="btn">Konfirmasi WhatsApp</a><br>
+      <button class="close" onclick="closeModal('modalEwallet')">Tutup</button>
+    </div>
+  </div>
+
   <script>
-    function toggleDetail(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === "none" || el.style.display === "" ? "block" : "none";
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function hideLoader() {
+      document.getElementById('loading').style.display = 'none';
     }
   </script>
 </body>
